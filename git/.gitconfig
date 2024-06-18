@@ -10,7 +10,7 @@
     ci = commit
     co = checkout
     br = branch
-    # log commands ~~~~~~~~~~~~~
+    # log commands
     lgp = log -p
     lg = log --pretty=oneline --topo-order --graph --abbrev-commit --all --decorate
     lgc = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -10"
@@ -21,13 +21,14 @@
     lgn = log --graph --all --decorate --stat --date=iso --name-only
     lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
     lgt = "-c diff.external=difft log -p --ext-diff"
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #
     df  = diff -b
     # These 4 commands are the same:
     dfc = diff -b --cached
     dfs = diff -b --staged
     dc = diff -b --cached
     ds = diff -b --staged
+    #
     dft = difftool
     dfm = "!f() { git diff --name-only $(git branch --show-current) $(git merge-base $(git branch --show-current) master); }; f"
     # like "git log", but include the diffs
@@ -35,7 +36,7 @@
     # changes since we last did a push
     wo = whatchanged -p origin..
     io = diff --stat origin/master
-	pushall = push --recurse-submodules=on-demand
+    pushall = push --recurse-submodules=on-demand
     id = rev-parse --short HEAD
     unstage = reset HEAD --
     sw = switch
@@ -54,7 +55,7 @@
     prompt = false
 [push]
     default = matching
-	autoSetupRemote = true
+    autoSetupRemote = true
 [core]
     editor = vim
     pager = delta --plus-style=" syntax #012800" --minus-style="syntax #340001" --theme=Monokai Extended
@@ -74,11 +75,11 @@
 [interactive]
     diffFilter = delta --color-only
 [pull]
-	rebase = true
+    rebase = true
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-	syntax-theme = Monokai Extended Bright
+    syntax-theme = Monokai Extended Bright
 [diff]
     colorMoved = default
     tool = difftastic
