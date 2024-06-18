@@ -1,0 +1,39 @@
+# <type>: <subject> (Max 50 char, Why is this change necessary?)
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+# Explain how the commit addresses the issue
+
+# IMPORTANT!! Describe any side effects of the change.
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Examples: "Jira issue [ABC-123]" or "Closes Github issue #123"
+
+# --- COMMIT END ---
+# <type> can be:
+# feat: new feature for the user, not a new feature for build script
+# fix: bug fix for the user, not a fix to a build script
+# docs: changes to the documentation
+# style: formatting, missing semi colons, etc; no production code change
+# refactor: refactoring production code, eg. renaming a variable
+# test: adding missing tests, refactoring tests; no production code change
+# chore: updating grunt tasks etc; no production code change
+# perf: a code change that improves performance
+# wip: work in progress.:
+#   1. Draft some changes, add a bunch of smaller wip commits.
+#   2. Deploy to a test env or re-run a local build, rinse and repeat.
+#   3. Once the code looks good, and the tests pass, squash all wip
+#      commits and push to production.
+# BREAKING CHANGE:
+#   1. a commit that has a footer BREAKING CHANGE:, or
+#   2. appends a ! after the type/scope, introduces a breaking API
+#      change (correlating with MAJOR in Semantic Versioning). A
+#      BREAKING CHANGE can be part of commits of any type.
+# --------------------
+# Remember to
+#   - Capitalize the subject line
+#   - Use the imperative mood in the subject line
+#   - Do not end the subject line with a period
+#   - Separate subject from body with a blank line
+#   - Use the body to explain what and why vs. how
+#   - Can use multiple lines with "-" for bullet points in body.

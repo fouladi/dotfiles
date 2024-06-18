@@ -40,3 +40,9 @@ configurations:
 ```
 ~/.screenlayou/farr_single.sh
 ```
+
+## git configuration
+
+It makes symbolic links for *git* configuration files.
+
+* Run: `stow git`
