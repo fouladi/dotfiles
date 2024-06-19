@@ -46,3 +46,9 @@ configurations:
 It makes symbolic links for *git* configuration files.
 
 * Run: `stow git`
+
+## zsh configuration
+
+It makes symbolic links for *zsh* configuration files.
+
+* Run: `stow zsh`
