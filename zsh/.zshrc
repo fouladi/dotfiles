@@ -1,6 +1,8 @@
+# enable instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # Load personal prompt config
 
 # If you come from bash you might have to change your $PATH.
 export PATH=.:$HOME/bin:/usr/local/bin:$PATH
@@ -11,7 +13,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export EDITOR='nvim'
-
 
 # pyenv - pyenv initialization must happen before plugin loading of oh-my-zsh pyenv plugin.
 export PYENV_ROOT="$HOME/.pyenv"
@@ -46,7 +47,7 @@ setopt append_history no_inc_append_history no_share_history
 
 
 # dn - Daily notes command line tool
-# ==================================
+# ----------------------------------
 export DNHOME=~/repo/doc/daily_notes
 # 'dn' writes a bullet-pointed string to a file with today's date in YYYY-MM-DD format in the $DNHOME/ folder.
 dn() {
@@ -97,9 +98,6 @@ fshow() {
     done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
   done
 }
-
-# # 3/3. powerlevel10k: To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source $HOME/.config/broot/launcher/bash/br
 
