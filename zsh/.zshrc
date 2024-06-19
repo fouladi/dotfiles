@@ -18,7 +18,7 @@ export EDITOR='nvim'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-plugins=(colored-man-pages git zsh-autosuggestions virtualenv pyenv colorize extract z)
+plugins=(colored-man-pages git virtualenv pyenv colorize extract z)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.alias.zsh
