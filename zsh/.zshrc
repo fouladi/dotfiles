@@ -5,7 +5,8 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # Load personal prompt config
 
 # If you come from bash you might have to change your $PATH.
-export PATH=.:$HOME/bin:/usr/local/bin:$PATH
+export PATH=".:$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 setopt auto_cd
 cdpath=($HOME/dev ..)
 # Path to your oh-my-zsh installation.
@@ -24,15 +25,13 @@ source $ZSH/oh-my-zsh.sh
 source ~/.alias.zsh
 
 # User configuration
-# Go
+# Go & Rust
 export GOPATH=$HOME/.go
 export PATH=".:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
+# git-fuzzy
 export PATH="$HOME/.oh-my-zsh/git-fuzzy/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -44,7 +43,6 @@ setopt nonomatch
 # you start new session it gets all the previous history from all
 # sessions before it.
 setopt append_history no_inc_append_history no_share_history
-
 
 # dn - Daily notes command line tool
 # ----------------------------------
@@ -101,6 +99,7 @@ fshow() {
 
 source $HOME/.config/broot/launcher/bash/br
 
+# Node-Version-Manager
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
