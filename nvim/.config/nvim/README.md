@@ -1,6 +1,6 @@
 # Configuration Pure Nvim using only lua
 
-make a symbolic link in directory:
+Make a symbolic link in directory:
 
 ```sh
 cd ~/.config
@@ -9,7 +9,7 @@ ln -s nvim ~/repo/dotfiles/config_nvim
 
 # lsp-config
 
-You have to install `npm` before you go on with installaton of "Language-
+You have to install `npm` before you go on with installation of "Language-
 Server". To do that:
 
 ## installs NVM (Node Version Manager)
@@ -40,7 +40,7 @@ npm -v # should print `10.5.0`
 
 ## Installing tree-sitter-cli
 
-Additionally you are goint to install 'tree-sitter-cli': (needed at
+Additionally you are going to install 'tree-sitter-cli': (needed at
 least by LaTeX)
 
 ```sh
@@ -52,8 +52,3 @@ npm install tree-sitter-cli
 ```
 
 * After that run in nvim: `TSUpdate latex`
-
-## TODOs
-
-* Some use of `vimscript` is due to backward compatibilities and can be
-  move to `lua` in future.
