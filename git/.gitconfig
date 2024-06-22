@@ -4,6 +4,8 @@
     path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dotfiles/"]
     path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev-personal/ccrypt-wrapper.nvim/"]
+    path = ~/.gitconfig-personal
 # Add aliases
 [alias]
     st = status
