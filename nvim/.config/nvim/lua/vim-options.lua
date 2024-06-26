@@ -98,24 +98,6 @@ autocmd("FileType", { pattern = { "toml" }, command = ":nnoremap <buffer>  <lead
 autocmd("FileType", { pattern = { "xslt" }, command = "" })
 -- shfmt: https://github.com/mvdan/sh
 autocmd("FileType", { pattern = { "sh" }, command = ":nnoremap <buffer> <leader>p :%!shfmt -i 4 -ln bash -ci<CR>" })
---
--- ToggleHiOverLength: This will highlight all characters past 120 columns in #592929
-function ToggleHiOverLength()
-    if vim.b.overlengthhi == 1 then
-        vim.cmd("highlight clear OverLength")
-        vim.opt.colorcolumn = "0"
-        vim.b.overlengthhi = 0
-    else
-        -- Adjust colors/styles as desired
-        vim.cmd("highlight OverLength ctermbg=darkgrey guibg=#592929")
-        vim.opt.colorcolumn = "120"                  -- MaxColumn = 120
-        vim.fn.matchadd("OverLength", "\\%121v.\\+") -- After MaxColumn = 120+1  change color
-        vim.b.overlengthhi = 1
-    end
-end
---
-keymap.set("n", "<F3>", ":lua ToggleHiOverLength()<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>3", ":lua ToggleHiOverLength()<CR>", { noremap = true, silent = true })
 -- LaTeX
 autocmd("FileType", {
     pattern = "tex",
