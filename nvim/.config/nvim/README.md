@@ -1,13 +1,11 @@
 # Configuration Pure Nvim using only lua
 
-Make a symbolic link in directory:
+Make a symbolic link in directory. For doing that use `stow`:
 
-```sh
-cd ~/.config
-ln -s nvim ~/repo/dotfiles/config_nvim
-```
+* Run: `stow nvim`
+* URL: https://www.gnu.org/software/stow/
 
-# lsp-config
+# Prerequisites for lsp-config
 
 You have to install `npm` before you go on with installation of "Language-
 Server". To do that:
