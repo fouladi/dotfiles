@@ -80,6 +80,8 @@ keymap.set("n", "<C-Up>", ":m .-2<CR>==", { silent = true })
 -- Bubble multiple lines
 keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv", { silent = true })
 keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv", { silent = true })
+-- Navigate to source tree of file whose buffer I was just editing
+keymap.set("n", "<leader>.", ":tabedit %:p:h<CR>", { silent = true })
 --
 -- code prettifier for some programming languages (xml, python, sql, rust, ...)
 --
