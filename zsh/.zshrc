@@ -29,8 +29,6 @@ source ~/.alias.zsh
 export GOPATH=$HOME/.go
 export PATH=".:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
-# Java
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 # git-fuzzy
 export PATH="$HOME/.oh-my-zsh/git-fuzzy/bin:$PATH"
 
