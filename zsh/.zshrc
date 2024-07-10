@@ -82,7 +82,7 @@ dntodo() {
 # ALT-C: uses tree command to show the entries of the directory
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # fshow - git commit browser (using fzf)
-fshow() {
+gshow() {
   local out sha q
   while out=$(
       git log --graph --color=always \
