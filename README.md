@@ -18,11 +18,6 @@ configurations:
 * URL: https://wezfurlong.org/wezterm/index.html
 * Run: `stow wezterm`
 
-## starship - Cross-Shell Prompt
-
-* URL: https://starship.rs
-* Run: `stow starship`
-
 ## Screenlayout
 
 * Run: `stow screenlayout`
