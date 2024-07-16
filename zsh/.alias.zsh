@@ -17,12 +17,12 @@ alias rm='rm -f'
 alias -- +='pushd .'
 alias -- -='popd'
 #
-alias n='netstat -tpe'
+alias ne='netstat -tpe'
 alias na='netstat -ntalp'
 #
 alias xml2xsd='java -jar ~/repo/bin/trang.jar'
 #
-alias nv='nvim'
+alias n='nvim'
 alias grep='grep --color=always'
 alias pf='ps -af --forest'
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
