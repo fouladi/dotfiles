@@ -8,6 +8,8 @@
     path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dev-personal/toggle-overlength.nvim/"]
     path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev-personal/far-cookiecutter/"]
+    path = ~/.gitconfig-personal
 # Add aliases
 [alias]
     st = status
