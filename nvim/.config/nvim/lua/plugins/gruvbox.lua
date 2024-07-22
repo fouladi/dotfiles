@@ -6,7 +6,7 @@ return {
         priority = 1000,
         config = function()
             require("gruvbox").setup({
-                contrast = "soft",
+                contrast = "dark",
                 palette_overrides = { bright_green = "#b8bb26" },
                 overrides = {
                     Comment = { fg = "#81878f", italic = true, bold = false },

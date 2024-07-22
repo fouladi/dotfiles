@@ -62,7 +62,7 @@ cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=
 -- ,S - remove all trailing spaces
 keymap.set("n", "<leader>S", ":%s/\\s\\+$//e <CR>")
 -- ,m - remove those bloody ^M's at the end of lines
-keymap.set("n", "<leader>m", ":%s/\\r//g <CR>")
+keymap.set("n", "<leader>M", ":%s/\\r//g <CR>")
 -- Toggle spell checking
 keymap.set("n", "<leader>ss", ":setlocal spell!<CR>")
 keymap.set("n", "<leader>sd", ":setlocal spelllang=de<CR>")
