@@ -33,7 +33,7 @@ configurations:
     + click the Add button and add the action that you want.
 
 ```
-~/.screenlayou/farr_single.sh
+~/.screenlayout/farr_single.sh
 ```
 
 ## git configuration
