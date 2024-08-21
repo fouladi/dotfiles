@@ -61,7 +61,7 @@ keymap.set("n", "<A-Right>", "<C-w>l")
 cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
 -- ,S - remove all trailing spaces
 keymap.set("n", "<leader>S", ":%s/\\s\\+$//e <CR>")
--- ,m - remove those bloody ^M's at the end of lines
+-- ,M - remove those bloody ^M's at the end of lines
 keymap.set("n", "<leader>M", ":%s/\\r//g <CR>")
 -- Toggle spell checking
 keymap.set("n", "<leader>ss", ":setlocal spell!<CR>")
