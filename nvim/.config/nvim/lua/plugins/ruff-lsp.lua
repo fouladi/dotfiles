@@ -8,6 +8,8 @@ return {
             },
         },
     }),
+    -- To use Ruff exclusively for linting, code-formatting, and organizing
+    -- imports (code-transforming), you can disable those capabilities for Pyright:
     require("lspconfig").pyright.setup({
         settings = {
             pyright = {
