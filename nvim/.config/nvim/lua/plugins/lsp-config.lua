@@ -24,16 +24,7 @@ return {
             -- and add it to the on_attach option of each language server
             -- NOTE: install each of following tools on your machine and
             -- Install through Mason
-            lspconfig.pyright.setup({
-                capabilities = capabilities,
-                filetypes = { "python" },
-            })
-
-            lspconfig.ruff.setup({
-                capabilities = capabilities,
-                filetypes = { "python" },
-            })
-
+            -- For Python we use: 'ruff-lsp.lua'
             lspconfig.lua_ls.setup({
                 settings = {
                     Lua = {
