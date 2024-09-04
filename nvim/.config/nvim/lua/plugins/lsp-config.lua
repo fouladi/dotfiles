@@ -51,12 +51,15 @@ return {
             })
 
             -- Adding 'pyenv virtualenv' for Pyright
-            vim.env.PYENV_VERSION = vim.fn.system('pyenv version'):match('(%S+)%s+%(.-%)')
+            vim.env.PYENV_VERSION = vim.fn.system("pyenv version"):match("(%S+)%s+%(.-%)")
             -- Keymaps for doc, definition, reference and code-action
-            vim.keymap.set("n", "<leader>doc", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "<leader>def", vim.lsp.buf.definition, {})
-            vim.keymap.set("n", "<leader>ref", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>act", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", { desc = "Lsp Info" })
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+            vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
+            vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
         end,
     },
 }
