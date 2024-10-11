@@ -89,7 +89,7 @@ autocmd("FileType", { pattern = { "xml", "xslt" }, command = ":nnoremap <buffer>
 autocmd("FileType", { pattern = { "python" }, command = ":nnoremap <buffer> <leader>p :%!ruff format -<CR>" })
 autocmd("FileType", {
     pattern = { "sql" },
-    command = ":nnoremap <buffer> <leader>p :%!sqlformat --reindent --keywords upper --identifiers lower -<CR>",
+    command = ":nnoremap <buffer> <leader>p :%!pg_format --spaces 2 --function-case 2<CR>",
 })
 autocmd("FileType", { pattern = { "rust" }, command = ":nnoremap <buffer> <leader>p :%!rustfmt<CR>" })
 autocmd("FileType", { pattern = { "text" }, command = ":nnoremap <buffer> <leader>p :%!fmt -75 -s -<CR>" })
