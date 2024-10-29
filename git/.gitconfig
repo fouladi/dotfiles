@@ -18,7 +18,7 @@
     ci = commit
     co = checkout
     br = branch
-    # log commands
+    # log commands ------- 1.
     lgp = log -p
     lg = log --pretty=oneline --topo-order --graph --abbrev-commit --all --decorate
     lgc = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -10"
@@ -29,7 +29,7 @@
     lgn = log --graph --all --decorate --stat --date=iso --name-only
     lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
     lgt = "-c diff.external=difft log -p --ext-diff"
-    #
+    # diff commands ------- 2.
     df  = diff -b
     # These 4 commands are the same:
     dfc = diff -b --cached
@@ -38,12 +38,14 @@
     ds = diff -b --staged
     #
     dft = difftool
-    dfm = "!f() { git diff --name-only $(git branch --show-current) $(git merge-base $(git branch --show-current) master); }; f"
+    # List of files I changed since branch created:
+    dfm = "!f() { git diff --name-only $(git branch --show-current) $(git merge-base $(git branch --show-current) ${1:-develop}); }; f"
     # like "git log", but include the diffs
     w  = whatchanged -p
     # changes since we last did a push
     wo = whatchanged -p origin..
     io = diff --stat origin/master
+    # other commands ------- 3.
     pushall = push --recurse-submodules=on-demand
     id = rev-parse --short HEAD
     unstage = reset HEAD --
