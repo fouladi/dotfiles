@@ -31,6 +31,12 @@ return {
                         fg = "#442d30",
                         bg = "#442d30",
                     },
+                    DiffText = {
+                        bold = true,
+                        reverse = true,
+                        fg = "",
+                        bg = "#213352",
+                    },
                 },
             })
             vim.cmd.colorscheme("gruvbox") -- Comment in order to deactivate "gruvbox"!
