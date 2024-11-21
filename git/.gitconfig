@@ -22,10 +22,11 @@
     lgp = log -p
     lg = log --pretty=oneline --topo-order --graph --abbrev-commit --all --decorate
     lgc = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -10"
+    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
     lgy = log --since=yesterday.0:00am --oneline --decorate
     # summary of what you're going to push
     lgps = log --pretty=oneline --no-merges origin..master
-    lgg = log --graph --all --decorate --stat --date=iso
+    lgk = log --graph --all --decorate --stat --date=iso
     lgn = log --graph --all --decorate --stat --date=iso --name-only
     lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
     lgt = "-c diff.external=difft log -p --ext-diff"
@@ -101,3 +102,5 @@
     template = ~/.gitmessage
 [pager]
     difftool = true
+[init]
+	defaultBranch = main
