@@ -8,7 +8,7 @@ return {
         local conform = require("conform")
         -- get list of all Formatters from:
         --          https://github.com/stevearc/conform.nvim/tree/master/lua/conform/formatters
-        -- Ensure the are installed see: lsp-config.lua
+        -- Ensure they are also installed, see: lsp-config.lua
         conform.setup({
             formatters_by_ft = {
                 lua = { "stylua" },
@@ -26,7 +26,7 @@ return {
                 liquid = { "prettier" },
                 xml = { "xmllint" },
                 java = { "google-java-format" },
-                sh = { "shfmt" },
+                sh = { "shfmt", "shellcheck" },
                 -- Conform will run multiple formatters sequentially
                 python = {
                     -- To fix auto-fixable lint errors.

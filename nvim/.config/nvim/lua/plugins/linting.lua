@@ -1,6 +1,9 @@
 return {
     "mfussenegger/nvim-lint",
-    -- This is so that we lazy load conform.nvim when we open a buffer
+    -- 'Linting' is the automated checking of your source code for
+    -- programmatic and stylistic errors.
+    --
+    -- This is so that we load nvim-lint.nvim when we open a buffer
     -- either for an 'already existing' file or for a 'new file' as we only
     -- need formatting when working in a buffer.
     event = { "BufReadPre", "BufNewFile" },
