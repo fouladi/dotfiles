@@ -2,16 +2,48 @@ return {
     {
         lazy = false,
         "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+        },
         config = function()
             require("mason").setup()
+            -- import mason
+            local mason = require("mason")
+            -- import mason-lspconfig
+            local mason_lspconfig = require("mason-lspconfig")
+            local mason_tool_installer = require("mason-tool-installer")
+            -- enable mason and configure icons
+            mason.setup({
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗",
+                    },
+                },
+            })
+
+            mason_lspconfig.setup({
+                -- list of servers for mason to install
+                ensure_installed = {
+                    "lua_ls",
+                    "ruff",
+                    "pyright",
+                },
+            })
+
+            mason_tool_installer.setup({
+                ensure_installed = {
+                    "prettier", -- prettier (JavaScript,html,css ) formatter
+                    "stylua", -- lua formatter
+                    "ruff", -- python formatter
+                    "shfmt", -- bash/zsh formatter
+                    "shellcheck", -- bash/zsh formatter
+                    "google-java-format", -- Java formatter
+                },
+            })
         end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
-        opts = {
-            auto_install = true,
-        },
     },
     {
         "neovim/nvim-lspconfig",
