@@ -21,7 +21,6 @@ return {
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
-                markdown = { "prettier" },
                 graphql = { "prettier" },
                 liquid = { "prettier" },
                 xml = { "xmllint" },
