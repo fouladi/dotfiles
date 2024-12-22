@@ -32,7 +32,7 @@ configurations:
     + scroll down to and high-light `LXQT Autostart`
     + click the Add button and add the action that you want.
 
-```
+```sh
 ~/.screenlayout/farr_single.sh
 ```
 
@@ -47,3 +47,18 @@ It makes symbolic links for *git* configuration files.
 It makes symbolic links for *zsh* configuration files.
 
 * Run: `stow zsh`
+
+## Yazi configuration
+
+It is a terminal file manager written in Rust, based on async I/O.
+
+* Run: `stow yazi`
+* URL: https://yazi-rs.github.io
+
+To install `yazi`
+
+```sh
+rustup update
+# Now you can install Yazi from crates.io:
+cargo install --locked yazi-fm yazi-cli
+```
