@@ -5,7 +5,9 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = function()
-        require("markview").setup({})
-        vim.api.nvim_set_keymap("n", "<leader>md", ":Markview<CR>", { silent = true })
+        require("markview").setup({
+            initial_state = false, -- don't show preview
+        })
+        vim.api.nvim_set_keymap("n", "<leader>md", ":Markview toggle<CR>", { silent = true })
     end,
 }
