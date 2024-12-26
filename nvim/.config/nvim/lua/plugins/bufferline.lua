@@ -3,6 +3,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     version = "*",
     branch = "main",
-    opts = {                                             -- require("bufferline").setup(opts)
+    opts = { -- require("bufferline").setup(opts)
     },
 }
