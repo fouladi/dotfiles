@@ -1,4 +1,6 @@
 -- JDTLS (Java LSP) configuration
+-- NOTE: Review TODO: points for your current system and set them properly.
+--
 local home = vim.env.HOME -- Get the home directory
 
 local jdtls = require("jdtls")
