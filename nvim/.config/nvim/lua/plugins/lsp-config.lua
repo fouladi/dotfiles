@@ -30,10 +30,11 @@ return {
             mason_lspconfig.setup({
                 -- list of servers for mason to install
                 ensure_installed = {
-                    "lua_ls",
-                    "ruff",
-                    "pyright",
+                    "gopls",
                     "jdtls", -- Java LSP
+                    "lua_ls",
+                    "pyright",
+                    "ruff",
                 },
             })
 

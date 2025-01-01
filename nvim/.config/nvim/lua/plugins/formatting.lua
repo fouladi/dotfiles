@@ -35,6 +35,7 @@ return {
                     -- To organize the imports.
                     "ruff_organize_imports",
                 },
+                rust = { "rustfmt", lsp_format = "fallback" },
             },
             -- Add a format_on_save field to apply formatting when saving a file.
             format_on_save = {
