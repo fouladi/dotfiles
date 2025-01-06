@@ -48,6 +48,15 @@ It makes symbolic links for *zsh* configuration files.
 
 * Run: `stow zsh`
 
+### Some Dependencies in zshrc
+
+* Configuration: `oh-my-zsh` - URL: https://ohmyz.sh/
+* Theme: `Powerlevel10k` - URL: https://github.com/romkatv/powerlevel10k
+* Replacement for ls: `eza` - URL: https://eza.rocks/
+* Change directory smarter: `zoxide` - URL: https://github.com/ajeetdsouza/zoxide
+* Fuzzy finder: `fzf` - URL: https://github.com/junegunn/fzf
+* Replacement for cat: `bat` - URL: https://github.com/sharkdp/bat
+
 ## Yazi configuration
 
 It is a terminal file manager written in Rust, based on async I/O.
@@ -62,3 +71,13 @@ rustup update
 # Now you can install Yazi from crates.io:
 cargo install --locked yazi-fm yazi-cli
 ```
+
+# TODO
+
+Currently `Powerlevel10k` is not actively supported. I may move to:
+
+- Theme: `starship` - URL: https://starship.rs/
+
+Using `pass` to store all my passowrds:
+
+- Password Manager: `pass` - URL: https://www.passwordstore.org/
