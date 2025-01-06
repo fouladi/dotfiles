@@ -13,6 +13,11 @@ configurations:
 * URL: https://neovim.io
 * Run: `stow nvim`
 
+### Some Dependencies in nvim
+
+* `ctags`: generates an index (or tag) file of language objects found in
+  source files for programming languages.
+
 ## wezterm - WezTerm - Wez's Terminal Emulator
 
 * URL: https://wezfurlong.org/wezterm/index.html
