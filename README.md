@@ -65,7 +65,7 @@ It makes symbolic links for *zsh* configuration files.
 #### oh-my-zsh plugins
 
 Nearly all *oh-my-zsh* plugins are installed atomatically. But these
-plugins you have install manually:
+plugins you have install manually, i.e. custom plugins:
 
 1. Install zsh-autosuggestions
 
@@ -83,6 +83,24 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ```sh
  git clone https://github.com/mattberther/zsh-pyenv ~/.oh-my-zsh/custom/plugins/zsh-pyenv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-pyenv
+```
+
+4. Install zsh-fast-syntax-highlighting
+
+```sh
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+```
+
+5. Install zsh-autocomplete
+
+```sh
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+```
+
+Enable plugins by adding them to .zshrc:
+
+```
+plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-pyenv)
 ```
 
 ## Yazi configuration
