@@ -62,6 +62,29 @@ It makes symbolic links for *zsh* configuration files.
 * Fuzzy finder: `fzf` - URL: https://github.com/junegunn/fzf
 * Replacement for cat: `bat` - URL: https://github.com/sharkdp/bat
 
+#### oh-my-zsh plugins
+
+Nearly all *oh-my-zsh* plugins are installed atomatically. But these
+plugins you have install manually:
+
+1. Install zsh-autosuggestions
+
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+2. Install zsh-syntax-highlighting
+
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+3. Install zsh-pyenv
+
+```sh
+ git clone https://github.com/mattberther/zsh-pyenv ~/.oh-my-zsh/custom/plugins/zsh-pyenv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-pyenv
+```
+
 ## Yazi configuration
 
 It is a terminal file manager written in Rust, based on async I/O.

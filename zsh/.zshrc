@@ -14,12 +14,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export EDITOR='nvim'
-
 # pyenv - pyenv initialization must happen before plugin loading of oh-my-zsh pyenv plugin.
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-plugins=(colored-man-pages git virtualenv pyenv colorize extract zoxide)
+plugins=(colored-man-pages zsh-autosuggestions zsh-syntax-highlighting git virtualenv pyenv colorize extract zoxide)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.alias.zsh
