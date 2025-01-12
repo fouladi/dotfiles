@@ -73,7 +73,8 @@ plugins you have install manually, i.e. custom plugins:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-2. Install zsh-syntax-highlighting - Currently not in .zshrc:plugins activated.
+2. Install zsh-syntax-highlighting - Currently not in .zshrc:plugins
+   activated (duplicate see: zsh-fast-syntax-highlighting).
 
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
