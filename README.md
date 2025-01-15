@@ -92,6 +92,14 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 ```
 
+Change from the *default* theme to *forest* with command:
+
+```sh
+fast-theme forest
+#
+fast-theme -l # list all themes
+```
+
 5. Install zsh-autocomplete - Currently not in .zshrc:plugins activated.
 
 ```sh
