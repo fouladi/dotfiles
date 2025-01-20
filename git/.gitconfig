@@ -51,6 +51,7 @@
     id = rev-parse --short HEAD
     unstage = reset HEAD --
     sw = switch
+	bb = !better-branch.sh  # TODO: add script to dotfiles repo
 [mergetool "nvim"]
     # define command which will be used when "nvim" is set as a merge tool: LOCAL - MERGED - REMOTE
     # :Gw! window where you execute that command will be committed and marked as a merge resolution
@@ -104,3 +105,5 @@
     difftool = true
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
