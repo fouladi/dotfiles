@@ -4,6 +4,7 @@ return {
     opts = {
         -- TODO: do something
         -- FIX: this should be fixed
+        -- BUG: This is a bug
         -- HACK: weird code warning
         -- NOTE: A note
         -- WARNING: Achtung
@@ -11,7 +12,8 @@ return {
         -- DONE: erldeigt
         keywords = {
             DONE = { icon = "✓", color = "hint", alt = { "FIXED" } },
+            FIX = { alt = { "FIXED", "BUG", "FIXIT", "ISSUE" } },
         },
-        highlight = { comments_only = false },
+        highlight = { comments_only = true },
     },
 }
