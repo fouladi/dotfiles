@@ -131,7 +131,12 @@ cargo install --locked yazi-fm yazi-cli
 
 Currently `Powerlevel10k` is not actively supported. I may move to:
 
-- Theme: `starship` - URL: https://starship.rs/
+- `oh-my-posh`: https://ohmyposh.dev/
+    OR
+- `starship` - URL: https://starship.rs/
+
+Currently *starship* does supports "Transient Prompt" only for PowerShell
+and *fish*. So I decide to use `oh-my-posh`.
 
 Using `pass` to store all my passowrds:
 
