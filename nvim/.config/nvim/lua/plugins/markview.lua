@@ -6,7 +6,9 @@ return {
     },
     config = function()
         require("markview").setup({
-            initial_state = false, -- don't show preview
+            preview = {
+                enable = false, -- don't show preview
+            },
         })
         vim.api.nvim_set_keymap("n", "<leader>md", ":Markview toggle<CR>", { silent = true })
     end,
