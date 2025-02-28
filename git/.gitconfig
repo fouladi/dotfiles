@@ -95,6 +95,7 @@
 [diff]
     colorMoved = default
     tool = difftastic
+	algorithm = histogram
 [difftool]
     prompt = false
 [difftool "difftastic"]
@@ -107,3 +108,5 @@
 	defaultBranch = main
 [rerere]
 	enabled = true
+[branch]
+	sort = -committerdate
