@@ -108,3 +108,9 @@ autocmd("FileType", {
         vim.bo[args.buf].syntax = "on" -- only if additional legacy syntax is needed
     end,
 })
+vim.diagnostic.config({
+    virtual_lines = {
+        -- Only show virtual line diagnostics for the current cursor line
+        current_line = true,
+    },
+})
