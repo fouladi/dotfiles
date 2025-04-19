@@ -1,5 +1,5 @@
 return {
-    "nvim-lspconfig",
+    "neovim/nvim-lspconfig",
     require("lspconfig").ruff.setup({
         init_options = {
             settings = {
