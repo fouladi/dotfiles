@@ -110,8 +110,16 @@ autocmd("FileType", {
 })
 -- Used with nvim >= 0.11
 vim.diagnostic.config({
-    virtual_lines = {
-        -- Only show virtual line diagnostics for the current cursor line
+    virtual_text = {
         current_line = true,
     },
+    virtual_line = {
+        current_line = false,
+    },
 })
+vim.keymap.set("", "<leader>bl", function()
+    vim.diagnostic.config({
+        virtual_lines = not vim.diagnostic.config().virtual_lines,
+        virtual_text = not vim.diagnostic.config().virtual_text,
+    })
+end, { desc = "Toggle diagnostic [l]ines" })
