@@ -18,10 +18,24 @@ configurations:
 * `ctags`: generates an index (or tag) file of language objects found in
   source files for programming languages.
 
-## wezterm - WezTerm - Wez's Terminal Emulator
+## Terminal Emulators
+
+My two alternatives:
+
+### wezterm - WezTerm - Wez's Terminal Emulator
 
 * URL: https://wezfurlong.org/wezterm/index.html
 * Run: `stow wezterm`
+
+### ghostty - Ghostty - terminal emulator pushing modern features
+
+* URL: https://ghostty.org
+* Run: `stow ghostty`
+
+### Change Lubuntu's default terminal
+
+Open `Preferences > LXQT Settings > Shortcut Keys` and double click on
+the item that has the shortcut you wish to change: `Control+Alt+T`
 
 ## Screenlayout
 

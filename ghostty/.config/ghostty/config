@@ -1,0 +1,9 @@
+# Color Scheme
+theme = GruvboxDark
+# Font
+font-family = InputMono
+font-size = 10
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
