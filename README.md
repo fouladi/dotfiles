@@ -32,6 +32,11 @@ My two alternatives:
 * URL: https://ghostty.org
 * Run: `stow ghostty`
 
+### Change Ubuntu's 20.04 Keyboard Shortcuts
+
+Open `Settings > Keyboard Shortcuts > Custom Shortcust` and click on the
+item: `Control+Alt+T`
+
 ### Change Lubuntu's default terminal
 
 Open `Preferences > LXQT Settings > Shortcut Keys` and double click on
