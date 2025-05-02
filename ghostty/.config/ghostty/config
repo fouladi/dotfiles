@@ -7,3 +7,5 @@ font-size = 10
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+# Keybindings
+keybind = global:f11=toggle_fullscreen
