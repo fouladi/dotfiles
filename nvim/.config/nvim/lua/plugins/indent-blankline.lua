@@ -32,6 +32,6 @@ return {
                 remove_blankline_trail = true,
             },
         })
-        vim.api.nvim_set_keymap("n", "<leader>it", ":IBLToggle<CR>", { silent = true })
+        vim.api.nvim_set_keymap("n", "<leader>ti", ":IBLToggle<CR>", { silent = true })
     end,
 }
