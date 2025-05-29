@@ -1,10 +1,12 @@
 return {
     {
-        lazy = false,
         "williamboman/mason.nvim",
+        lazy = false,
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "WhoIsSethDaniel/mason-tool-installer.nvim",
+            "hrsh7th/cmp-nvim-lsp",
+            "neovim/nvim-lspconfig",
         },
         config = function()
             require("mason").setup()
@@ -13,10 +15,6 @@ return {
             -- import mason-lspconfig
             local mason_lspconfig = require("mason-lspconfig")
             local mason_tool_installer = require("mason-tool-installer")
-            --  needed for JDTLS Java LSP
-            local lspconfig = require("lspconfig")
-            local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-            -- enable mason and configure icons
             mason.setup({
                 ui = {
                     icons = {
@@ -30,25 +28,12 @@ return {
             mason_lspconfig.setup({
                 -- list of servers for mason to install
                 ensure_installed = {
-                    "gopls",
-                    "jdtls", -- Java LSP
                     "lua_ls",
-                    "pyright",
+                    "gopls",
                     "ruff",
+                    "pyright",
+                    "jdtls", -- Java LSP
                 },
-            })
-
-            -- Call setup on each LSP server - specially needed for JDTLS Java LSP
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    -- Don't call setup for JDTLS Java LSP because it
-                    -- will be setup from a separate config
-                    if server_name ~= "jdtls" then
-                        lspconfig[server_name].setup({
-                            capabilities = lsp_capabilities,
-                        })
-                    end
-                end,
             })
 
             mason_tool_installer.setup({
