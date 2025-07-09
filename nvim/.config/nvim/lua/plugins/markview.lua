@@ -9,6 +9,7 @@ return {
             preview = {
                 enable = false, -- don't show preview
             },
+            experimental = { check_rtp_message = false },
         })
         vim.api.nvim_set_keymap("n", "<leader>md", ":Markview toggle<CR>", { silent = true })
     end,
