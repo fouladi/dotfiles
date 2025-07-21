@@ -9,6 +9,10 @@ export PATH=".:$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 setopt auto_cd
 cdpath=($HOME/dev ..)
+# Cut the load time of oh-my-zsh in half - results in doing updates manually!
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -18,7 +22,7 @@ export EDITOR='nvim'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-plugins=(colored-man-pages zsh-autosuggestions fast-syntax-highlighting git virtualenv pyenv colorize extract zoxide)
+plugins=(colored-man-pages zsh-autosuggestions git virtualenv pyenv colorize extract zoxide fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.alias.zsh
