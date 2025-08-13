@@ -84,13 +84,15 @@ It makes symbolic links for *zsh* configuration files.
     - `CTRL-T` paste the selected files and directories onto the command line.
 * Replacement for cat: `bat` - URL: https://github.com/sharkdp/bat
 * Replacement for find: `ripgrep` - URL: https://github.com/BurntSushi/ripgrep
-* Simplified and community-driven man pages: `tldr` - URL: https://tldr.sh/
+* Simplified and community-driven man pages: `tldr` - URL: https://github.com/tealdeer-rs/tealdeer
 * A viewer for git and diff output with syntax highlighting and line
   numbers: `git-delta` - URL: https://github.com/dandavison/delta
 * An advanced log file viewer for the small-scale: `lnav` - URL:
   https://lnav.org
 * Run *COMMAND* when *FILE* changes `entr` - URL:
   https://github.com/eradman/entr
+* A generator for the `LS_COLORS` environment variable: `vivid` - URL:
+  https://github.com/sharkdp/vivid
 
 #### oh-my-zsh plugins
 

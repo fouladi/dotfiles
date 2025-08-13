@@ -24,6 +24,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 plugins=(colored-man-pages zsh-autosuggestions git virtualenv pyenv colorize extract zoxide fast-syntax-highlighting)
 
+# use vivid to set LS_COLORS 
+export LS_COLORS="$(vivid generate gruvbox-dark)"
+
 source $ZSH/oh-my-zsh.sh
 source ~/.alias.zsh
 
