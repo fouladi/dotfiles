@@ -3,7 +3,12 @@ return {
     event = "VeryLazy",
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type Flash.Config
-    opts = {},
+    --- Make flash enabled in regular search.
+    opts = {
+        modes = {
+            search = { enabled = true },
+        },
+    },
     -- stylua: ignore
     -- n: Normal mode.
     -- x: Visual mode.
