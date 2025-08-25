@@ -1,0 +1,12 @@
+# Overwrite Stow built-in default ignore list!
+#
+# Comments and blank lines are allowed.
+# PCRE (Perl Regex) one per line for ignoring files or directories.
+\.git
+\.gitignore
+\.gitmodules
+\.gitattributes
+
+^/README.*
+^/LICENSE.*
+^/COPYING
