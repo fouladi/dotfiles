@@ -159,6 +159,21 @@ rustup update
 cargo install --locked yazi-fm yazi-cli
 ```
 
+## ripgrep
+
+ripgrep is a line-oriented search tool that recursively searches the
+current directory for a regex pattern.
+
+* Run: `stow ripgrep`
+* URL: https://github.com/BurntSushi/ripgrep
+
+To install `ripgrep`
+
+```sh
+rustup update
+cargo install ripgrep
+```
+
 # TODO
 
 Currently `Powerlevel10k` is not actively supported. I may move to:
