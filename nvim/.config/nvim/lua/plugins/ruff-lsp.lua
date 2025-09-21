@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    require("lspconfig").ruff.setup({
+    vim.lsp.config("ruff", {
         init_options = {
             settings = {
                 -- Any extra CLI arguments for `ruff` go here.
@@ -11,7 +11,7 @@ return {
     }),
     -- To use Ruff exclusively for linting, code-formatting, and organizing
     -- imports (code-transforming), you can disable those capabilities for Pyright:
-    require("lspconfig").pyright.setup({
+    vim.lsp.config("pyright", {
         settings = {
             pyright = {
                 -- Using Ruff's import organizer
@@ -25,4 +25,5 @@ return {
             },
         },
     }),
+    vim.lsp.enable("ruff"),
 }
