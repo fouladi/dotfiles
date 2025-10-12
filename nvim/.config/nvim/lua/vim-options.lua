@@ -1,5 +1,4 @@
 local opt = vim.opt
-local cmd = vim.cmd
 
 vim.g.mapleader = "," -- NOTE: Set leader to comma -  reverse char search
 
@@ -16,42 +15,3 @@ opt.shiftround = true -- indent/outdent to nearest tabstop
 opt.ignorecase = true -- if search term has at least one capital letter
 opt.smartcase = true --          then case-insensitiv else case-sensitive
 opt.number = false -- shows absolute line number on cursor line
-
--- Used with nvim >= 0.11
-vim.diagnostic.config({
-    virtual_text = {
-        current_line = true,
-    },
-    virtual_line = {
-        current_line = false,
-    },
-})
-vim.keymap.set("", "<leader>bl", function()
-    vim.diagnostic.config({
-        virtual_lines = not vim.diagnostic.config().virtual_lines,
-        virtual_text = not vim.diagnostic.config().virtual_text,
-    })
-end, { desc = "Toggle diagnostic [l]ines" })
-
--- Remove the paste function of 'OSC 52' and rely on wezterm/gohstty's
--- paste from clipboard instead.
-vim.o.clipboard = "unnamedplus"
-
-local function paste()
-    return {
-        vim.fn.split(vim.fn.getreg(""), "\n"),
-        vim.fn.getregtype(""),
-    }
-end
-
-vim.g.clipboard = {
-    name = "OSC 52",
-    copy = {
-        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-    },
-    paste = {
-        ["+"] = paste,
-        ["*"] = paste,
-    },
-}

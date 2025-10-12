@@ -58,3 +58,37 @@ autocmd("BufReadPost", {
         end
     end,
 })
+
+-- Diagnostic and Copy/Paste --
+-- Used with nvim >= 0.11
+vim.diagnostic.config({
+    virtual_text = {
+        current_line = true,
+    },
+    virtual_line = {
+        current_line = false,
+    },
+})
+
+-- Remove the paste function of 'OSC 52' and rely on wezterm/gohstty's
+-- paste from clipboard instead.
+vim.o.clipboard = "unnamedplus"
+
+local function paste()
+    return {
+        vim.fn.split(vim.fn.getreg(""), "\n"),
+        vim.fn.getregtype(""),
+    }
+end
+
+vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        ["+"] = paste,
+        ["*"] = paste,
+    },
+}

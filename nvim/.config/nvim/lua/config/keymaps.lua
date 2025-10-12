@@ -61,3 +61,9 @@ keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv", { silent = true })
 keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv", { silent = true })
 -- Navigate to source tree of file whose buffer I was just editing
 keymap.set("n", "<leader>.", ":tabedit %:p:h<CR>", { silent = true })
+keymap.set("", "<leader>bl", function()
+    vim.diagnostic.config({
+        virtual_lines = not vim.diagnostic.config().virtual_lines,
+        virtual_text = not vim.diagnostic.config().virtual_text,
+    })
+end, { desc = "Toggle diagnostic [l]ines" })
