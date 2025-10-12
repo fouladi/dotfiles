@@ -17,6 +17,7 @@ configurations:
 
 * `ctags`: generates an index (or tag) file of language objects found in
   source files for programming languages.
+* Pick Plugins: https://github.com/rockerBOO/awesome-neovim
 
 ## Terminal Emulators
 
