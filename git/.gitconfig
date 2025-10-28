@@ -110,3 +110,12 @@
 	enabled = true
 [branch]
 	sort = -committerdate
+[tig "color"]
+    # Colors: white, black, green, magenta, blue, cyan, yellow, red, default=default terminal colors,
+	cursor		= black	green bold
+	# UI colors
+	title-blur	= white	blue
+	title-focus	= white	blue  bold
+# View-specific color
+[tig "color.tree"]
+	date		= cyan	default	bold

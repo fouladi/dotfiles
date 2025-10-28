@@ -121,3 +121,5 @@ function y() {
         fi
         rm -f -- "$tmp"
 }
+# Shell history
+eval "$(atuin init zsh)"

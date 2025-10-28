@@ -88,6 +88,7 @@ It makes symbolic links for *zsh* configuration files.
 * Simplified and community-driven man pages: `tldr` - URL: https://github.com/tealdeer-rs/tealdeer
 * A viewer for git and diff output with syntax highlighting and line
   numbers: `git-delta` - URL: https://github.com/dandavison/delta
+* Shell history with a SQLite database:`atuin` -  https://github.com/atuinsh/atuin
 * An advanced log file viewer for the small-scale: `lnav` - URL:
   https://lnav.org
 * Run *COMMAND* when *FILE* changes `entr` - URL:
