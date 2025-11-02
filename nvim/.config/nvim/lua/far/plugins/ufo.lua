@@ -1,4 +1,3 @@
----@diagnostic disable: unused-local
 return {
     "kevinhwang91/nvim-ufo",
     config = function()

@@ -1,4 +1,5 @@
 return {
+    -- Integration for Git
     "lewis6991/gitsigns.nvim",
     config = function()
         require("gitsigns").setup({ signcolumn = false })

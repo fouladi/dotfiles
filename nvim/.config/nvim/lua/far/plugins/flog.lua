@@ -1,4 +1,5 @@
 return {
+    -- Git branch viewer
     "rbong/vim-flog",
     lazy = true,
     cmd = { "Flog", "Flogsplit", "Floggit" },

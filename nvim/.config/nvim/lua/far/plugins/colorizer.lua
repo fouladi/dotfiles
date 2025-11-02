@@ -1,4 +1,5 @@
 local M = { -- color highlighter #Gold #00FF11 #234 Red
+    -- A high-performance color highlighter for Neovim which has no external dependencies!
     "NvChad/nvim-colorizer.lua",
     event = { "BufReadPost", "BufNewFile" },
 }
