@@ -70,16 +70,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH=".:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
-setopt auto_cd
-cdpath=($HOME/dev ..)
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export EDITOR='nvim'
-# pyenv - pyenv initialization must happen before plugin loading of oh-my-zsh pyenv plugin.
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # use vivid to set LS_COLORS 
 export LS_COLORS="$(vivid generate gruvbox-dark)"
 
