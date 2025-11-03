@@ -75,7 +75,6 @@ It makes symbolic links for *zsh* configuration files.
 
 ### Some Dependencies and Terminal Utilities
 
-* Configuration: `oh-my-zsh` - URL: https://ohmyz.sh/
 * Theme: `Powerlevel10k` - URL: https://github.com/romkatv/powerlevel10k
 * Replacement for ls: `eza` - URL: https://eza.rocks/
 * Change directory smarter: `zoxide` - URL: https://github.com/ajeetdsouza/zoxide
@@ -88,63 +87,12 @@ It makes symbolic links for *zsh* configuration files.
 * Simplified and community-driven man pages: `tldr` - URL: https://github.com/tealdeer-rs/tealdeer
 * A viewer for git and diff output with syntax highlighting and line
   numbers: `git-delta` - URL: https://github.com/dandavison/delta
-* Shell history with a SQLite database:`atuin` -  https://github.com/atuinsh/atuin
 * An advanced log file viewer for the small-scale: `lnav` - URL:
   https://lnav.org
 * Run *COMMAND* when *FILE* changes `entr` - URL:
   https://github.com/eradman/entr
 * A generator for the `LS_COLORS` environment variable: `vivid` - URL:
   https://github.com/sharkdp/vivid
-
-#### oh-my-zsh plugins
-
-Nearly all *oh-my-zsh* plugins are installed atomatically. But these
-plugins you have install manually, i.e. custom plugins:
-
-1. Install zsh-autosuggestions
-
-```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
-
-2. Install zsh-syntax-highlighting - Currently not in .zshrc:plugins
-   activated (duplicate see: zsh-fast-syntax-highlighting).
-
-```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-3. Install zsh-pyenv
-
-```sh
- git clone https://github.com/mattberther/zsh-pyenv ~/.oh-my-zsh/custom/plugins/zsh-pyenv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-pyenv
-```
-
-4. Install zsh-fast-syntax-highlighting
-
-```sh
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
-```
-
-Change from the *default* theme to *forest* with command:
-
-```sh
-fast-theme forest
-#
-fast-theme -l # list all themes
-```
-
-5. Install zsh-autocomplete - Currently not in .zshrc:plugins activated.
-
-```sh
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
-```
-
-Enable plugins by adding them to .zshrc:
-
-```
-plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-pyenv)
-```
 
 ## Yazi configuration
 
