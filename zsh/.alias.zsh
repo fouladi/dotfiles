@@ -10,6 +10,8 @@ alias ltree='exa -l --tree --icons'
 alias ldtree='exa -D --tree --icons'
 alias lg='exa --long --grid'
 alias lZ='du -hd 1 . | sort -hr'
+alias ..='cd ..'
+alias ...='cd ../..'
 #
 alias md='mkdir -p'
 alias rd=rmdir
