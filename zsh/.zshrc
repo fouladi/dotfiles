@@ -86,8 +86,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # ------------- dn - Daily notes command line tool
 export DNHOME=~/repo/doc/daily_notes
 # 'dn' writes a bullet-pointed string to a file with today's date in YYYY-MM-DD format in the $DNHOME/ folder.
