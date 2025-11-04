@@ -16,6 +16,7 @@ typeset -U path
 path=($^path(N-/))
 
 export PATH
+
 # Go related
 export GOPATH=$HOME/.go
 
@@ -86,12 +87,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-export EDITOR='nvim'
-# use vivid to set LS_COLORS 
-export LS_COLORS="$(vivid generate gruvbox-dark)"
-
-# source aliases
-source ~/.alias.zsh
 
 # ------------- dn - Daily notes command line tool
 export DNHOME=~/repo/doc/daily_notes
@@ -128,11 +123,20 @@ dntodo() {
 }
 
 # ------------- Misc.
-# RipGREP
+export EDITOR='nvim'
+
+# use vivid to set LS_COLORS 
+export LS_COLORS="$(vivid generate gruvbox-dark)"
+
+# RipGREP configuration
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# source aliases
+source ~/.alias.zsh
 
 # Turn-Off CapsLock = VoidSymbol
 setxkbmap -option caps:none
+
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
 function y() {
