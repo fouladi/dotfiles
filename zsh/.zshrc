@@ -1,3 +1,25 @@
+# ------------- Path Configuration
+setopt extended_glob null_glob
+
+path=(
+$path           # keep existing PATH entries
+.
+$HOME/bin
+$HOME/.local/bin
+$HOME/.cargo/bin
+$HOME/.go/bin
+/usr/local/bin
+)
+
+# Remove duplicate entries and non-existent directories
+typeset -U path
+path=($^path(N-/))
+
+export PATH
+# Go related
+export GOPATH=$HOME/.go
+
+# ------------- Prompt
 # enable instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -43,7 +65,7 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # Load personal prompt config
 
-# History
+# ------------- History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -63,14 +85,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# If you come from bash you might have to change your $PATH.
-export PATH=".:$HOME/bin:/usr/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-# Go & Rust
-export GOPATH=$HOME/.go
-export PATH=".:$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.go/bin:$PATH"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export EDITOR='nvim'
 # use vivid to set LS_COLORS 
@@ -79,8 +93,7 @@ export LS_COLORS="$(vivid generate gruvbox-dark)"
 # source aliases
 source ~/.alias.zsh
 
-# dn - Daily notes command line tool
-# ----------------------------------
+# ------------- dn - Daily notes command line tool
 export DNHOME=~/repo/doc/daily_notes
 # 'dn' writes a bullet-pointed string to a file with today's date in YYYY-MM-DD format in the $DNHOME/ folder.
 dn() {
@@ -114,6 +127,7 @@ dntodo() {
   echo "- [ ] $1" >> $_FILENAME
 }
 
+# ------------- Misc.
 # RipGREP
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 

@@ -128,6 +128,7 @@ cargo install ripgrep
 
 Currently `Powerlevel10k` is not actively supported. I may move to:
 
+- `pure` - URL: https://github.com/sindresorhus/pure
 - `starship` - URL: https://starship.rs/
 - `oh-my-posh` - URL: https://ohmyposh.dev/
 
