@@ -1,7 +1,8 @@
 # ------------- Path Configuration
-setopt extended_glob null_glob
+setopt extended_glob    # extended pattern and filter for glob
+setopt null_glob        # empty expansion in stead of unchanged pattern when no match is found
 
-path=(
+path=(          # 'path' as an "array"
 $path           # keep existing PATH entries
 .
 $HOME/bin
@@ -15,13 +16,14 @@ $HOME/.go/bin
 typeset -U path
 path=($^path(N-/))
 
-export PATH
+# When you change 'path', 'PATH' is automatically adjusted - Zsh synchronizes them with each other.
+export PATH         # PATH as an "environmen variable"
 
 # Go related
 export GOPATH=$HOME/.go
 
 # ------------- Prompt
-# enable instant prompt
+# enable instant prompt - 'p10k'
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
