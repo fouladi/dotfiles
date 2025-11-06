@@ -2,7 +2,7 @@ setopt extended_glob    # advanced globbing
 setopt null_glob        # empty expansion instead of literal pattern
 setopt interactivecomments # comments in command-line
 
-# --- Path configuration
+# ------------- Path configuration
 path=(                  # 'path' as an "array"
   $path                 # keep existing PATH entries
   .
@@ -21,22 +21,22 @@ path=($^path(N-/))
 # When you change 'path', 'PATH' is automatically adjusted - Zsh synchronizes them with each other.
 export PATH             # PATH as an "environmen variable"
 
-# --- Go/pyenv(Python) environment
+# ------------- Go/pyenv(Python) environment
 export GOPATH="$HOME/.go"
 export PYENV_ROOT="$HOME/.pyenv"
 
-# --- Misc environment variables
+# ------------- Misc environment variables
 export EDITOR='nvim'
 export DNHOME="$HOME/repo/doc/daily_notes"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export LS_COLORS="$(vivid generate gruvbox-dark)"
 
-# --- Instant prompt (Powerlevel10k)
+# ------------- Instant prompt (Powerlevel10k)
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# --- Zinit plugin manager setup
+# ------------- Zinit plugin manager setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ ! -d "$ZINIT_HOME" ]]; then
   mkdir -p "$(dirname "$ZINIT_HOME")"
@@ -44,7 +44,7 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-# --- Plugins and themes ---
+# ------------- Plugins and themes ---
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins: Syntax highlighting, completions, autosuggestions, fzf-tab
@@ -72,7 +72,7 @@ zinit cdreplay -q
 # To customize prompt, run p10k configure or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh # Load personal prompt config
 
-# --- History
+# ------------- History
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -85,7 +85,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# --- Completion styling
+# ------------- Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
@@ -126,7 +126,7 @@ dntodo() {
   echo "- [ ] $1" >> "$_FILENAME"
 }
 
-# --- Misc / Keymap / Aliases ---
+# ------------ Misc / Keymap / Aliases ---
 source ~/.alias.zsh
 # Turn-Off CapsLock = VoidSymbol
 setxkbmap -option caps:none
@@ -142,7 +142,16 @@ y() {
   rm -f -- "$tmp"
 }
 
-# --- Tool initialization ---
+# make ALT+BACKSPACE stop at non-alphanumeric characters (like Bash)
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+    zle -f kill
+}
+zle -N backward-kill-dir
+bindkey '^[^?' backward-kill-dir
+
+# ------------- Tool initialization ---
 eval "$(pyenv init --path)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
