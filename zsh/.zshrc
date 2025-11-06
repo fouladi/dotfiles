@@ -1,5 +1,6 @@
 setopt extended_glob    # advanced globbing
 setopt null_glob        # empty expansion instead of literal pattern
+setopt interactivecomments # comments in command-line
 
 # --- Path configuration
 path=(                  # 'path' as an "array"
