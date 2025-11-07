@@ -151,6 +151,13 @@ backward-kill-dir () {
 zle -N backward-kill-dir
 bindkey '^[^?' backward-kill-dir
 
+# fzf - Preview file content using 'bat'
+export FZF_CTRL_T_OPTS=" --walker-skip .git,node_modules,target --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# fzf - Print tree structure in the preview window using 'tree'
+export FZF_ALT_C_OPTS=" --walker-skip .git,node_modules,target --preview 'tree -C {}'"
+
 # ------------- Tool initialization ---
 eval "$(pyenv init --path)"
 eval "$(fzf --zsh)"
