@@ -8,6 +8,7 @@ return {
                 "html",
                 "lua_ls",
                 "ruff",
+                "ty",
             },
         },
         dependencies = {

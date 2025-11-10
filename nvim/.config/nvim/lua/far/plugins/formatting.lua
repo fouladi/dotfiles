@@ -8,7 +8,7 @@ return {
         local conform = require("conform")
         -- get list of all Formatters from:
         --          https://github.com/stevearc/conform.nvim/tree/master/lua/conform/formatters
-        -- Ensure they are also installed, see: lsp-config.lua
+        -- Ensure they are also installed, see: vim.lsp.config
         conform.setup({
             formatters_by_ft = {
                 lua = { "stylua" },

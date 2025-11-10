@@ -53,9 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- vim.lsp.inlay_hint.enable(true)
-
 local severity = vim.diagnostic.severity
-
 vim.diagnostic.config({
     signs = {
         text = {
