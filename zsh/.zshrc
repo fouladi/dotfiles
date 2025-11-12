@@ -175,3 +175,4 @@ python_venv
 eval "$(pyenv init --path)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(uv generate-shell-completion zsh)"
