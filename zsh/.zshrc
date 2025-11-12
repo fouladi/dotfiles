@@ -59,6 +59,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::virtualenv
 zinit snippet OMZP::pyenv
+zinit snippet OMZP::uv
 zinit snippet OMZP::colorize
 zinit snippet OMZP::extract
 zinit snippet OMZP::zoxide
@@ -157,6 +158,18 @@ export FZF_CTRL_T_OPTS=" --walker-skip .git,node_modules,target --preview 'bat -
 
 # fzf - Print tree structure in the preview window using 'tree'
 export FZF_ALT_C_OPTS=" --walker-skip .git,node_modules,target --preview 'tree -C {}'"
+
+# ------------ Auto activate/deactivate Python venv
+python_venv() {
+  MYVENV=./.venv
+  # when you cd into a folder that contains $MYVENV
+  [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
+  # when you cd into a folder that doesn't
+  [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1 || true
+}
+autoload -U add-zsh-hook
+add-zsh-hook chpwd python_venv
+python_venv
 
 # ------------- Tool initialization ---
 eval "$(pyenv init --path)"
