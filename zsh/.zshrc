@@ -133,6 +133,8 @@ y() {
   rm -f -- "$tmp"
 }
 
+# Select emacs keybinding for command
+bindkey -e
 # make ALT+BACKSPACE stop at non-alphanumeric characters (like Bash)
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
