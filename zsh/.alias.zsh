@@ -1,5 +1,5 @@
 alias c='xsel --clipboard'
-alias l='exa -alFh'
+alias l='exa -alhF'
 alias la='exa -lh'
 alias ll='exa -lh --icons'
 alias lt='exa --sort=newest -l'

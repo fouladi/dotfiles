@@ -11,7 +11,6 @@ path=(                  # 'path' as an "array"
   $HOME/.local/bin
   $HOME/.cargo/bin
   $HOME/.go/bin
-  $HOME/.pyenv/bin
 )
 
 # Remove duplicates and non-existent directories
@@ -21,20 +20,14 @@ path=($^path(N-/))
 # When you change 'path', 'PATH' is automatically adjusted - Zsh synchronizes them with each other.
 export PATH             # PATH as an "environmen variable"
 
-# ------------- Go/pyenv(Python) environment
+# ------------- Go environment
 export GOPATH="$HOME/.go"
-export PYENV_ROOT="$HOME/.pyenv"
 
 # ------------- Misc environment variables
 export EDITOR='nvim'
 export DNHOME="$HOME/repo/doc/daily_notes"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export LS_COLORS="$(vivid generate gruvbox-dark)"
-
-# ------------- Instant prompt (Powerlevel10k)
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # ------------- Zinit plugin manager setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -58,7 +51,6 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::virtualenv
-zinit snippet OMZP::pyenv
 zinit snippet OMZP::uv
 zinit snippet OMZP::colorize
 zinit snippet OMZP::extract
@@ -129,8 +121,6 @@ dntodo() {
 
 # ------------ Misc / Keymap / Aliases ---
 source ~/.alias.zsh
-# Turn-Off CapsLock = VoidSymbol
-setxkbmap -option caps:none
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
@@ -172,7 +162,11 @@ add-zsh-hook chpwd python_venv
 python_venv
 
 # ------------- Tool initialization ---
-eval "$(pyenv init --path)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(uv generate-shell-completion zsh)"
+
+# ------------- Instant prompt (Powerlevel10k)
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
