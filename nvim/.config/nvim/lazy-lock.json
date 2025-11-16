@@ -51,5 +51,5 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "visimatch.nvim": { "branch": "main", "commit": "4334be61a9d3a6b268179144c6354349e445eb89" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "yazi.nvim": { "branch": "main", "commit": "26b93e94d2e2c99e0f2210d1d3bedd763be849a2" }
+  "yazi.nvim": { "branch": "main", "commit": "2a5387135f65eb69c6b36ac2e7ec44bec6768296" }
 }

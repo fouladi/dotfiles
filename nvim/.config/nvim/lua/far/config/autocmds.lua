@@ -17,14 +17,6 @@ autocmd("FileType", { pattern = { "toml" }, command = ":nnoremap <buffer>  <lead
 autocmd("FileType", { pattern = { "xslt" }, command = "" })
 -- shfmt: https://github.com/mvdan/sh
 autocmd("FileType", { pattern = { "sh" }, command = ":nnoremap <buffer> <leader>p :%!shfmt -i 4 -ln bash -ci<CR>" })
--- LaTeX
-autocmd("FileType", {
-    pattern = "tex",
-    callback = function(args)
-        vim.treesitter.start(args.buf, "latex")
-        vim.bo[args.buf].syntax = "on" -- only if additional legacy syntax is needed
-    end,
-})
 
 -- spellcheck in md
 autocmd("FileType", {
