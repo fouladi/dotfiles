@@ -38,8 +38,6 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # ------------- Plugins and themes ---
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 # Add in zsh plugins: Syntax highlighting, completions, autosuggestions, fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -61,9 +59,6 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
-
-# To customize prompt, run p10k configure or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh # Load personal prompt config
 
 # ------------- History
 HISTSIZE=10000
@@ -167,8 +162,4 @@ python_venv
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(uv generate-shell-completion zsh)"
-
-# ------------- Instant prompt (Powerlevel10k)
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+eval "$(starship init zsh)"
