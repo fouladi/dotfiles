@@ -78,6 +78,7 @@ style_root = "bg:color_orange fg:color_fg0"
 format = '[ $user ]($style)'
 
 [directory]
+read_only = " 󰌾"
 style = "fg:color_blue"
 format = "[ $path ]($style)"
 truncation_length = 5
@@ -90,18 +91,27 @@ truncation_symbol = "~/"
 "Pictures" = " "
 "Develop" = "󰲋 "
 
+[hostname]
+ssh_symbol = " "
+
 [git_branch]
 symbol = ""
 style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_green)]($style)'
 
 [git_status]
-stashed = "[*${count}](color_blue) "
-modified = "[!${count}](color_yellow) "
-staged = "[+${count}](color_green) "
-untracked = "[?${count}](color_blue) "
-deleted = "[-${count}](color_red) "
-format = " ([$stashed$modified$staged$untracked $ahead_behind]($style))"
+untracked = '[ ${count}](color_yellow) '
+staged = '[ ${count}](color_green) '
+stashed = "[ ${count}](color_aqua) "
+deleted = '[ ${count}](color_red) '
+modified= '[ ${count}](color_blue) '
+behind = '[ ](color_purple) '
+ahead = '[ ](color_purple) '
+format = '([$all_status$ahead_behind]($style))'
+
+[lua]
+detect_folders = []
+symbol = " "
 
 [nodejs]
 symbol = ""
