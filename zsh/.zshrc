@@ -138,6 +138,13 @@ backward-kill-dir () {
 }
 zle -N backward-kill-dir
 bindkey '^[^?' backward-kill-dir
+# Use escape sequences directly (Ghostty = xterm compatible)
+bindkey "^[[H" beginning-of-line       # Home
+bindkey "^[[F" end-of-line             # End
+bindkey "^[[2~" overwrite-mode         # Insert (toggle)
+bindkey "^[[3~" delete-char            # Delete
+bindkey "^[[5~" up-line-or-history     # PageUp
+bindkey "^[[6~" down-line-or-history   # PageDown
 
 # fzf - Preview file content using 'bat'
 export FZF_CTRL_T_OPTS=" --walker-skip .git,node_modules,target --preview 'bat -n --color=always {}'
