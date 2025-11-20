@@ -81,7 +81,8 @@ format = '[ $user ]($style)'
 read_only = " 󰌾"
 style = "fg:color_blue"
 format = "[ $path ]($style)"
-truncation_length = 8
+truncation_length = 0
+truncate_to_repo = true
 truncation_symbol = "…/"
 
 [directory.substitutions]
