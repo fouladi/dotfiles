@@ -81,8 +81,8 @@ format = '[ $user ]($style)'
 read_only = " 󰌾"
 style = "fg:color_blue"
 format = "[ $path ]($style)"
-truncation_length = 5
-truncation_symbol = "~/"
+truncation_length = 8
+truncation_symbol = "…/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -100,11 +100,11 @@ style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_green)]($style)'
 
 [git_status]
-untracked = '[ ${count}](color_yellow) '
-staged = '[ ${count}](color_green) '
-stashed = "[ ${count}](color_aqua) "
+untracked = '[ ${count}](color_aqua) '
+staged = '[ ${count}](color_yellow) '
+stashed = "[ ${count}](color_blue) "
 deleted = '[ ${count}](color_red) '
-modified= '[ ${count}](color_blue) '
+modified= '[ ${count}](color_green) '
 behind = '[ ](color_purple) '
 ahead = '[ ](color_purple) '
 format = '([$all_status$ahead_behind]($style))'
