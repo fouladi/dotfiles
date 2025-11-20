@@ -75,7 +75,6 @@ It makes symbolic links for *zsh* configuration files.
 
 ### Some Dependencies and Terminal Utilities
 
-* Theme: `Powerlevel10k` - URL: https://github.com/romkatv/powerlevel10k
 * Replacement for ls: `eza` - URL: https://eza.rocks/
 * Change directory smarter: `zoxide` - URL: https://github.com/ajeetdsouza/zoxide
 * Fuzzy finder: `fzf` - URL: https://github.com/junegunn/fzf
@@ -125,12 +124,6 @@ cargo install ripgrep
 ```
 
 # TODO
-
-Currently `Powerlevel10k` is not actively supported. I may move to:
-
-- `pure` - URL: https://github.com/sindresorhus/pure
-- `starship` - URL: https://starship.rs/
-- `oh-my-posh` - URL: https://ohmyposh.dev/
 
 Using `pass` to store all my passowrds:
 

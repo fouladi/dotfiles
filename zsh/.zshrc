@@ -11,7 +11,6 @@ path=(                  # 'path' as an "array"
   $HOME/.local/bin
   $HOME/.cargo/bin
   $HOME/.go/bin
-  $HOME/.pyenv/bin
 )
 
 # Remove duplicates and non-existent directories
@@ -21,20 +20,14 @@ path=($^path(N-/))
 # When you change 'path', 'PATH' is automatically adjusted - Zsh synchronizes them with each other.
 export PATH             # PATH as an "environmen variable"
 
-# ------------- Go/pyenv(Python) environment
+# ------------- Go environment
 export GOPATH="$HOME/.go"
-export PYENV_ROOT="$HOME/.pyenv"
 
 # ------------- Misc environment variables
 export EDITOR='nvim'
 export DNHOME="$HOME/repo/doc/daily_notes"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export LS_COLORS="$(vivid generate gruvbox-dark)"
-
-# ------------- Instant prompt (Powerlevel10k)
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # ------------- Zinit plugin manager setup
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -45,8 +38,6 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # ------------- Plugins and themes ---
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 # Add in zsh plugins: Syntax highlighting, completions, autosuggestions, fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -58,7 +49,6 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::virtualenv
-zinit snippet OMZP::pyenv
 zinit snippet OMZP::uv
 zinit snippet OMZP::colorize
 zinit snippet OMZP::extract
@@ -69,9 +59,6 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
-
-# To customize prompt, run p10k configure or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh # Load personal prompt config
 
 # ------------- History
 HISTSIZE=10000
@@ -129,8 +116,6 @@ dntodo() {
 
 # ------------ Misc / Keymap / Aliases ---
 source ~/.alias.zsh
-# Turn-Off CapsLock = VoidSymbol
-setxkbmap -option caps:none
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
@@ -143,6 +128,8 @@ y() {
   rm -f -- "$tmp"
 }
 
+# Select emacs keybinding for command
+bindkey -e
 # make ALT+BACKSPACE stop at non-alphanumeric characters (like Bash)
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
@@ -151,6 +138,13 @@ backward-kill-dir () {
 }
 zle -N backward-kill-dir
 bindkey '^[^?' backward-kill-dir
+# Use escape sequences directly (Ghostty = xterm compatible)
+bindkey "^[[H" beginning-of-line       # Home
+bindkey "^[[F" end-of-line             # End
+bindkey "^[[2~" overwrite-mode         # Insert (toggle)
+bindkey "^[[3~" delete-char            # Delete
+bindkey "^[[5~" up-line-or-history     # PageUp
+bindkey "^[[6~" down-line-or-history   # PageDown
 
 # fzf - Preview file content using 'bat'
 export FZF_CTRL_T_OPTS=" --walker-skip .git,node_modules,target --preview 'bat -n --color=always {}'
@@ -172,7 +166,7 @@ add-zsh-hook chpwd python_venv
 python_venv
 
 # ------------- Tool initialization ---
-eval "$(pyenv init --path)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(uv generate-shell-completion zsh)"
+eval "$(starship init zsh)"

@@ -46,9 +46,5 @@ return {
     {
         "neovim/nvim-lspconfig",
         lazy = false,
-        config = function()
-            -- Adding 'pyenv virtualenv' for fixing "import pytest" - import could not be resolved!
-            vim.env.PYENV_VERSION = vim.fn.system("pyenv version"):match("(%S+)%s+%(.-%)")
-        end,
     },
 }
