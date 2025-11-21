@@ -75,6 +75,7 @@ It makes symbolic links for *zsh* configuration files.
 
 ### Some Dependencies and Terminal Utilities
 
+* Add `starship` prompt for `Zsh` - URL: https://starship.rs/
 * Replacement for ls: `eza` - URL: https://eza.rocks/
 * Change directory smarter: `zoxide` - URL: https://github.com/ajeetdsouza/zoxide
 * Fuzzy finder: `fzf` - URL: https://github.com/junegunn/fzf
@@ -86,12 +87,10 @@ It makes symbolic links for *zsh* configuration files.
 * Simplified and community-driven man pages: `tldr` - URL: https://github.com/tealdeer-rs/tealdeer
 * A viewer for git and diff output with syntax highlighting and line
   numbers: `git-delta` - URL: https://github.com/dandavison/delta
-* An advanced log file viewer for the small-scale: `lnav` - URL:
-  https://lnav.org
-* Run *COMMAND* when *FILE* changes `entr` - URL:
-  https://github.com/eradman/entr
-* A generator for the `LS_COLORS` environment variable: `vivid` - URL:
-  https://github.com/sharkdp/vivid
+* An advanced log file viewer for the small-scale: `lnav` - URL: https://lnav.org
+* Run *COMMAND* when *FILE* changes `entr` - URL: https://github.com/eradman/entr
+* A generator for the `LS_COLORS` environment variable: `vivid` - URL: https://github.com/sharkdp/vivid
+* Add `Lazygit`, it used in `nvim` too through a plugin - URL: https://github.com/jesseduffield/lazygit
 
 ## Yazi configuration
 
