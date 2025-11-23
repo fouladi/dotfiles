@@ -13,3 +13,6 @@ keybind = global:f11=toggle_fullscreen
 # The initial window size. This size is in terminal grid cells by default.
 window-width = 120
 window-height = 55
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
