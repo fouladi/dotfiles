@@ -106,8 +106,8 @@ staged = '[ ${count}](color_yellow) '
 stashed = "[ ${count}](color_blue) "
 deleted = '[ ${count}](color_red) '
 modified= '[ ${count}](color_green) '
-behind = '[ ](color_purple) '
-ahead = '[ ](color_purple) '
+behind = '[ ${count}](color_purple) '
+ahead = '[ ${count}](color_purple) '
 format = '([$all_status$ahead_behind]($style))'
 
 [lua]
