@@ -18,6 +18,7 @@ configurations:
 * `ctags`: generates an index (or tag) file of language objects found in
   source files for programming languages.
 * Pick Plugins: https://github.com/rockerBOO/awesome-neovim
+* You may need for some languages, e.g. LaTeX: `sudo npm -g install tree-sitter-cli`
 
 ## Terminal Emulators
 

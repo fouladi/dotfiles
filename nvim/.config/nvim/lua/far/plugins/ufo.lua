@@ -1,4 +1,5 @@
 return {
+    -- Ultra Fold for nvim
     "kevinhwang91/nvim-ufo",
     config = function()
         vim.o.foldcolumn = "0" -- '0' is no status column
