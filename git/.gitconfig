@@ -53,7 +53,12 @@
     id = rev-parse --short HEAD
     unstage = reset HEAD --
     sw = switch
-	bb = !better-branch.sh  # TODO: add script to dotfiles repo
+    rg = grep
+    bb = !git for-each-ref --color --sort=-committerdate --format='%(color:red)%(ahead-behind:HEAD)\t%(color:blue)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:default)%(describe)' refs/heads/ --no-merged |\
+        sed 's/ /\t/' | column --separator=$'\t' --table --table-columns='Ahead,Behind,Branch Name,Last Commit,Description'
+[grep]
+    lineNumber = true
+    patternType = perl
 [mergetool "nvim"]
     # define command which will be used when "nvim" is set as a merge tool: LOCAL - MERGED - REMOTE
     # :Gw! window where you execute that command will be committed and marked as a merge resolution
