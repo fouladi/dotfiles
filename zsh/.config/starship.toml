@@ -106,9 +106,9 @@ format = '[[ $symbol $branch ](fg:color_green)]($style)'
 [git_status]
 untracked = '[ ${count}](color_aqua) '
 staged = '[ ${count}](color_yellow) '
-stashed = "[ ${count}](color_green) "
+stashed = "[ ${count}](color_blue) "
 deleted = '[ ${count}](color_red) '
-modified= '[ ${count}](color_blue) '
+modified= '[ ${count}](bold color_green) '
 behind = '[ ${count}](color_purple) '
 ahead = '[ ${count}](color_purple) '
 format = '([$all_status$ahead_behind]($style))'
