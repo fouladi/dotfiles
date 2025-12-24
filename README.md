@@ -122,10 +122,3 @@ To install `ripgrep`
 rustup update
 cargo install ripgrep
 ```
-
-# TODO
-
-Using `pass` to store all my passowrds:
-
-Password Manager:
-- `pass` - URL: https://www.passwordstore.org/
