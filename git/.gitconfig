@@ -14,6 +14,8 @@
     path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dev-personal/sup/"]
     path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev-personal/peywand/"]
+    path = ~/.gitconfig-personal
 # Add aliases
 [alias]
     st = status
