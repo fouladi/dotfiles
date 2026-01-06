@@ -1,7 +1,7 @@
 # Color Scheme
 theme = GruvboxDarkFar
 # Font
-font-family = InputMono
+font-family = "JetBrainsMono Nerd Font"
 font-size = 10
 # Cursor
 cursor-style = block
