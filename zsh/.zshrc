@@ -6,11 +6,11 @@ setopt interactivecomments # comments in command-line
 path=(                  # 'path' as an "array"
   $path                 # keep existing PATH entries
   .
-  /usr/local/bin
   $HOME/bin
   $HOME/.local/bin
   $HOME/.cargo/bin
   $HOME/.go/bin
+  /usr/local/bin
 )
 
 # Remove duplicates and non-existent directories
