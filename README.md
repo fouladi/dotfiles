@@ -89,6 +89,7 @@ It makes symbolic links for *zsh* configuration files.
 * A viewer for git and diff output with syntax highlighting and line
   numbers: `git-delta` - URL: https://github.com/dandavison/delta
 * An advanced log file viewer for the small-scale: `lnav` - URL: https://lnav.org
+* `csvlens` is a command line CSV file viewer. URL: https://github.com/ys-l/csvlens
 * Run *COMMAND* when *FILE* changes `entr` - URL: https://github.com/eradman/entr
 * A generator for the `LS_COLORS` environment variable: `vivid` - URL: https://github.com/sharkdp/vivid
 * Add `Lazygit`, it used in `nvim` too through a plugin - URL: https://github.com/jesseduffield/lazygit
