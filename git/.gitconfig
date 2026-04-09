@@ -34,6 +34,16 @@
     lgn = log --graph --all --decorate --stat --date=iso --name-only
     lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
     lgt = "-c diff.external=difft log -p --ext-diff"
+    # what Changes the Most
+    lgcm = "!git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20"
+    # who Built This
+    lgwho = shortlog -sn --no-merges
+    # where Do Bugs Cluster
+    lgbug = "!git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20"
+    # is this project accelerating or dying
+    lgacc = "!git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c"
+    # how often is the Team Firefighting
+    lgfire = "!git log --oneline --since='1 year ago' | grep -iE 'revert|hotfix|emergency|rollback'"
     # diff commands ------- 2.
     df  = diff -b
     # These 4 commands are the same:
