@@ -20,8 +20,7 @@ config.color_scheme = "Gruvbox Dark (Gogh)"
 
 -- config.font = wezterm.font 'UbuntuMono Nerd Font Mono'
 -- Some other nice fonts:
-config.font = wezterm.font("InputMono")
--- config.font = wezterm.font 'JetbrainsMono Nerd Font Mono'
+config.font = wezterm.font("JetbrainsMono Nerd Font Mono")
 -- config.font_size = 11.0 -- Default is 12.00 - for UbuntuMono set to 11
 config.font_size = 10.0 -- Default is 12.00
 config.hide_tab_bar_if_only_one_tab = true
