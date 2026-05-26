@@ -18,6 +18,8 @@
     path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dev-personal/doostan/"]
     path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev-personal/yaran/"]
+    path = ~/.gitconfig-personal
 # Add aliases
 [alias]
     st = status
