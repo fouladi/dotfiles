@@ -15,3 +15,4 @@ opt.shiftround = true -- indent/outdent to nearest tabstop
 opt.ignorecase = true -- if search term has at least one capital letter
 opt.smartcase = true --          then case-insensitiv else case-sensitive
 opt.number = false -- shows absolute line number on cursor line
+opt.termguicolors = true -- enable 24-bit RGB colors (required by colorizer, bufferline, etc.)

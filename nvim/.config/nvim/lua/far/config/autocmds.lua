@@ -1,31 +1,44 @@
 local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+
 --
--- code prettifier for some programming languages (xml, python, sql, rust, ...)
+-- Code formatters for languages NOT covered by conform.nvim
 --
-autocmd("FileType", { pattern = { "xml", "xslt" }, command = ":nnoremap <buffer> <leader>p :%!xmllint --format -<CR>" })
-autocmd("FileType", { pattern = { "python" }, command = ":nnoremap <buffer> <leader>p :%!ruff format -<CR>" })
 autocmd("FileType", {
-    pattern = { "sql" },
-    command = ":nnoremap <buffer> <leader>p :%!pg_format --spaces 2 --function-case 2<CR>",
+    group = augroup,
+    pattern = { "text" },
+    callback = function()
+        vim.keymap.set("n", "<leader>p", ":%!fmt -75 -s -<CR>", { buffer = true, silent = true, desc = "Format text" })
+    end,
 })
-autocmd("FileType", { pattern = { "rust" }, command = ":nnoremap <buffer> <leader>p :%!rustfmt<CR>" })
-autocmd("FileType", { pattern = { "text" }, command = ":nnoremap <buffer> <leader>p :%!fmt -75 -s -<CR>" })
-autocmd("FileType", { pattern = { "go" }, command = ":nnoremap <buffer> <leader>p :%!gofmt<CR>" })
-autocmd("FileType", { pattern = { "json" }, command = ":nnoremap <buffer>  <leader>p :%!python -m json.tool<CR>" })
-autocmd("FileType", { pattern = { "proto" }, command = ":nnoremap <buffer>  <leader>p :%!prototool format %<CR>" })
-autocmd("FileType", { pattern = { "toml" }, command = ":nnoremap <buffer>  <leader>p :%!toml-fmt %<CR>" })
-autocmd("FileType", { pattern = { "xslt" }, command = "" })
--- shfmt: https://github.com/mvdan/sh
-autocmd("FileType", { pattern = { "sh" }, command = ":nnoremap <buffer> <leader>p :%!shfmt -i 4 -ln bash -ci<CR>" })
+autocmd("FileType", {
+    group = augroup,
+    pattern = { "proto" },
+    callback = function()
+        vim.keymap.set("n", "<leader>p", ":%!prototool format %<CR>", { buffer = true, silent = true, desc = "Format proto" })
+    end,
+})
+autocmd("FileType", {
+    group = augroup,
+    pattern = { "toml" },
+    callback = function()
+        vim.keymap.set("n", "<leader>p", ":%!toml-fmt %<CR>", { buffer = true, silent = true, desc = "Format toml" })
+    end,
+})
 
 -- spellcheck in md
 autocmd("FileType", {
+    group = augroup,
     pattern = "markdown",
-    command = "setlocal spell wrap",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.wrap = true
+    end,
 })
 
 -- disable automatic comment on newline
 autocmd("FileType", {
+    group = augroup,
     pattern = "*",
     callback = function()
         vim.opt_local.formatoptions:remove({ "c", "r", "o" })
@@ -34,6 +47,7 @@ autocmd("FileType", {
 
 -- highlight text on yank
 autocmd("TextYankPost", {
+    group = augroup,
     pattern = "*",
     callback = function()
         vim.highlight.on_yank({ timeout = 300 })
@@ -42,6 +56,7 @@ autocmd("TextYankPost", {
 
 -- restore cursor pos on file open
 autocmd("BufReadPost", {
+    group = augroup,
     pattern = "*",
     callback = function()
         local line = vim.fn.line("'\"")
@@ -51,17 +66,7 @@ autocmd("BufReadPost", {
     end,
 })
 
--- Diagnostic and Copy/Paste --
--- Used with nvim >= 0.11
-vim.diagnostic.config({
-    virtual_text = {
-        current_line = true,
-    },
-    virtual_line = {
-        current_line = false,
-    },
-})
-
+-- Copy/Paste --
 -- Remove the paste function of 'OSC 52' and rely on wezterm/gohstty's
 -- paste from clipboard instead.
 vim.o.clipboard = "unnamedplus"

@@ -24,7 +24,6 @@ return {
             },
             indent = {
                 tab_char = "▎",
-                -- char = "┊", -- One char for all
                 char = { "|", "¦", "┆", "┊" },
                 smart_indent_cap = true,
             },
@@ -32,6 +31,6 @@ return {
                 remove_blankline_trail = true,
             },
         })
-        vim.api.nvim_set_keymap("n", "<leader>ti", ":IBLToggle<CR>", { silent = true })
+        vim.keymap.set("n", "<leader>ti", "<cmd>IBLToggle<CR>", { silent = true, desc = "Toggle indent guides" })
     end,
 }

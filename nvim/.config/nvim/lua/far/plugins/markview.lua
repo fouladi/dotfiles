@@ -1,16 +1,16 @@
 return {
     "OXY2DEV/markview.nvim",
-    lazy = false,
+    ft = "markdown",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-        require("markview").setup({
-            preview = {
-                enable = false, -- don't show preview
-            },
-            experimental = { check_rtp_message = false },
-        })
-        vim.api.nvim_set_keymap("n", "<leader>md", ":Markview toggle<CR>", { silent = true })
-    end,
+    opts = {
+        preview = {
+            enable = false,
+        },
+        experimental = { check_rtp_message = false },
+    },
+    keys = {
+        { "<leader>md", "<cmd>Markview toggle<CR>", desc = "Toggle Markview" },
+    },
 }

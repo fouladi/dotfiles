@@ -17,7 +17,7 @@ return {
         { '<Leader>xS', '<cmd>Trouble lsp toggle<CR>', desc = 'LSP references/definitions/... (Trouble)' },
         { '<leader>xL', '<cmd>Trouble loclist toggle<cr>', desc = 'Location List (Trouble)' },
         { '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', desc = 'Quickfix List (Trouble)' },
-        { 'gR', function() require('trouble').open('lsp_references') end, desc = 'LSP References (Trouble)' },
+
         {
             '[q',
             function()
