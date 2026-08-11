@@ -6,70 +6,58 @@
     path = ~/.gitconfig-personal
 [includeIf "gitdir:~/omarchy-setup/"]
     path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/ccrypt-wrapper.nvim/"]
+# All repos under ~/dev-personal/ use the personal identity.
+# One directory-prefix match replaces the previous per-repo entries.
+[includeIf "gitdir:~/dev-personal/"]
     path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/toggle-overlength.nvim/"]
-    path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/far-cookiecutter/"]
-    path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/sup/"]
-    path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/peywand/"]
-    path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/doostan/"]
-    path = ~/.gitconfig-personal
-[includeIf "gitdir:~/dev-personal/yaran/"]
-    path = ~/.gitconfig-personal
-# Add aliases
+# ─── Aliases ───────────────────────────────────────────────────────────────────
 [alias]
     st = status
     ci = commit
     co = checkout
     br = branch
-    # log commands ------- 1.
+    sw = switch
+
+    # ─── Log ──────────────────────────────────────────────────────────────────
     lgp = log -p
-    lg = log --pretty=oneline --topo-order --graph --abbrev-commit --all --decorate
+    lg  = log --pretty=oneline --topo-order --graph --abbrev-commit --all --decorate
+    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --color
+    # top-10 most-changed files, all time
     lgc = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -10"
-    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
     lgy = log --since=yesterday.0:00am --oneline --decorate
     # summary of what you're going to push
     lgps = log --pretty=oneline --no-merges origin..main
     lgk = log --graph --all --decorate --stat --date=iso
     lgn = log --graph --all --decorate --stat --date=iso --name-only
-    lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+    # difftastic-powered log (shell alias passes args safely)
+    lgd = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff \"$@\"; }; f"
+    # same without shell (pure git -c style)
     lgt = "-c diff.external=difft log -p --ext-diff"
-    # what Changes the Most
+    # most-changed files in the last year
     lgcm = "!git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20"
-    # who Built This
+    # top contributors (by commit count)
     lgwho = shortlog -sn --no-merges
-    # where Do Bugs Cluster
+    # files that cluster around bug-fix commits
     lgbug = "!git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20"
-    # is this project accelerating or dying
+    # commit frequency per month (acceleration)
     lgacc = "!git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c"
-    # how often is the Team Firefighting
+    # reverts, hotfixes, rollbacks in the last year
     lgfire = "!git log --oneline --since='1 year ago' | grep -iE 'revert|hotfix|emergency|rollback'"
-    # diff commands ------- 2.
+
+    # ─── Diff ─────────────────────────────────────────────────────────────────
     df  = diff -b
-    # These 4 commands are the same:
-    dfc = diff -b --cached
-    dfs = diff -b --staged
-    dc = diff -b --cached
-    ds = diff -b --staged
-    #
+    dc  = diff -b --cached
+    ds  = diff -b --staged
     dft = difftool
-    # List of files I changed since branch created:
+    # files changed since branch diverged from base (default: develop)
     dfm = "!f() { git diff --name-only $(git branch --show-current) $(git merge-base $(git branch --show-current) ${1:-develop}); }; f"
-    # like "git log", but include the diffs
-    w  = whatchanged -p
-    # changes since we last did a push
-    wo = whatchanged -p origin..
-    io = diff --stat origin/master
-    # other commands ------- 3.
+
+    # ─── Misc ─────────────────────────────────────────────────────────────────
     pushall = push --recurse-submodules=on-demand
     id = rev-parse --short HEAD
     unstage = reset HEAD --
-    sw = switch
     rg = grep
+    # branch board: ahead/behind with last-commit date
     bb = !git for-each-ref --color --sort=-committerdate --format='%(color:red)%(ahead-behind:HEAD)\t%(color:blue)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:default)%(describe)' refs/heads/ --no-merged |\
         sed 's/ /\t/' | column --separator=$'\t' --table --table-columns='Ahead,Behind,Branch Name,Last Commit,Description'
 [grep]
@@ -89,11 +77,11 @@
     # automatically launch merge tool without displaying a prompt
     prompt = false
 [push]
-    default = matching
+    default = simple
     autoSetupRemote = true
 [core]
     editor = vim
-    pager = delta --plus-style=" syntax #012800" --minus-style="syntax #340001" --theme=Monokai Extended
+    pager = delta
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -112,13 +100,15 @@
 [pull]
     rebase = true
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    navigate = true
+    light = false
     syntax-theme = Monokai Extended Bright
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
 [diff]
     colorMoved = default
     tool = difftastic
-	algorithm = histogram
+    algorithm = histogram
 [difftool]
     prompt = false
 [difftool "difftastic"]
@@ -128,17 +118,19 @@
 [pager]
     difftool = true
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[fetch]
+    prune = true
+[rebase]
+    autoStash = true
 [rerere]
-	enabled = true
+    enabled = true
 [branch]
-	sort = -committerdate
+    sort = -committerdate
 [tig "color"]
-    # Colors: white, black, green, magenta, blue, cyan, yellow, red, default=default terminal colors,
-	cursor		= black	green bold
-	# UI colors
-	title-blur	= white	blue
-	title-focus	= white	blue  bold
-# View-specific color
+    # Colors: white, black, green, magenta, blue, cyan, yellow, red, default
+    cursor = black green bold
+    title-blur = white blue
+    title-focus = white blue bold
 [tig "color.tree"]
-	date		= cyan	default	bold
+    date = cyan default bold
