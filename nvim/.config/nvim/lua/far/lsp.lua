@@ -53,13 +53,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local severity = vim.diagnostic.severity
 vim.diagnostic.config({
     virtual_text = { current_line = true },
-    virtual_lines = { current_line = false },
+    virtual_lines = false,
     signs = {
         text = {
-            [severity.ERROR] = " ",
-            [severity.WARN] = " ",
+            [severity.ERROR] = " ",
+            [severity.WARN] = " ",
             [severity.HINT] = "󰠠 ",
-            [severity.INFO] = " ",
+            [severity.INFO] = " ",
         },
     },
 })
+
+-- Toggle virtual_lines on/off (default: off)
+vim.keymap.set("n", "<leader>vl", function()
+    local current = vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = not current })
+end, { desc = "Toggle diagnostic virtual lines" })
