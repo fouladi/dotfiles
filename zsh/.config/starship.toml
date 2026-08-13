@@ -6,7 +6,6 @@ format = """
 $os\
 $hostname\
 $directory\
-(color_green)\
 $git_branch\
 $git_status\
 $fill\

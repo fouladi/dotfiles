@@ -39,10 +39,25 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # ------------- Plugins and themes ---
 # Add in zsh plugins: Syntax highlighting, completions, autosuggestions, fzf-tab
-zinit light zsh-users/zsh-syntax-highlighting
+zinit ice blockf
 zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
+
+zinit ice wait lucid atload"
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+  bindkey '^[OA' history-substring-search-up
+  bindkey '^[OB' history-substring-search-down
+"
+zinit light zsh-users/zsh-history-substring-search
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
@@ -70,7 +85,6 @@ setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # ------------- Completion styling
@@ -81,7 +95,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # ------------- dn - Daily notes command line tool
-export DNHOME=~/repo/doc/daily_notes
 # 'dn' writes a bullet-pointed string to a file with today's date in YYYY-MM-DD format in the $DNHOME/ folder.
 dn() {
   echo " * $1" >> $DNHOME/$(date "+%Y-%m-%d")
@@ -156,17 +169,31 @@ export FZF_ALT_C_OPTS=" --walker-skip .git,node_modules,target --preview 'tree -
 # ------------ Auto activate/deactivate Python venv
 python_venv() {
   MYVENV=./.venv
-  # when you cd into a folder that contains $MYVENV
-  [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
-  # when you cd into a folder that doesn't
-  [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1 || true
+  if [[ -d $MYVENV ]]; then
+    source $MYVENV/bin/activate > /dev/null 2>&1
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate > /dev/null 2>&1
+  fi
 }
 autoload -U add-zsh-hook
 add-zsh-hook chpwd python_venv
 python_venv
 
-# ------------- Tool initialization ---
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(starship init zsh)"
+# ------------- Tool initialization (cached for faster startup) ---
+_zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+[[ -d "$_zsh_cache_dir" ]] || mkdir -p "$_zsh_cache_dir"
+
+_cache_eval() {
+  local name="$1" cmd="$2"
+  local cache_file="$_zsh_cache_dir/$name.zsh"
+  local bin_path="$(command -v ${cmd%% *})"
+  if [[ ! -f "$cache_file" || "$bin_path" -nt "$cache_file" ]]; then
+    eval "$cmd" > "$cache_file"
+  fi
+  source "$cache_file"
+}
+
+_cache_eval fzf "fzf --zsh"
+_cache_eval zoxide "zoxide init --cmd cd zsh"
+_cache_eval uv "uv generate-shell-completion zsh"
+_cache_eval starship "starship init zsh"
