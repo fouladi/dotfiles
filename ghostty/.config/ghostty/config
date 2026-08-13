@@ -1,18 +1,29 @@
-# Color Scheme
+# Ghostty Terminal Configuration
+#
+
+# ------------- Color Scheme
 theme = GruvboxDarkFar
-# Font
+bold-is-bright = false
+
+# ------------- Font
 font-family = "JetBrainsMono Nerd Font"
 font-size = 10
-# Cursor
+adjust-cell-width = -1
+
+# ------------- Cursor
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true
-# Keybindings
-keybind = global:f11=toggle_fullscreen
-# The initial window size. This size is in terminal grid cells by default.
+
+# ------------- Window
 window-width = 120
 window-height = 55
+window-padding-x = 4
+window-padding-y = 2
+window-decoration = false
 
-# Slowdown mouse scrolling
+# ------------- Input
+keybind = global:f11=toggle_fullscreen
+copy-on-select = clipboard
 mouse-scroll-multiplier = 0.95

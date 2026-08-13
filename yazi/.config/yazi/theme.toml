@@ -10,7 +10,7 @@
 # : Flavor {{{
 
 [flavor]
-dark  = "kanagawa"
+dark  = ""
 light = ""
 
 # : }}}
@@ -61,12 +61,12 @@ syntect_theme = ""
 # : Tabs {{{
 
 [tabs]
-active   = { bg = "blue", bold = true }
-inactive = { fg = "blue", bg = "gray" }
+active   = { fg = "#282828", bg = "#7daea3", bold = true }
+inactive = { fg = "#a89984", bg = "#3c3836" }
 
 # Separator
-sep_inner = { open = "", close = "" }
-sep_outer = { open = "", close = "" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
 
 # : }}}
 
@@ -74,16 +74,16 @@ sep_outer = { open = "", close = "" }
 # : Mode {{{
 
 [mode]
-normal_main = { bg = "blue", bold = true }
-normal_alt  = { fg = "blue", bg = "gray" }
+normal_main = { fg = "#282828", bg = "#7daea3", bold = true }
+normal_alt  = { fg = "#7daea3", bg = "#3c3836" }
 
 # Select mode
-select_main = { bg = "red", bold = true }
-select_alt  = { fg = "red", bg = "gray" }
+select_main = { fg = "#282828", bg = "#ea6962", bold = true }
+select_alt  = { fg = "#ea6962", bg = "#3c3836" }
 
 # Unset mode
-unset_main = { bg = "red", bold = true }
-unset_alt  = { fg = "red", bg = "gray" }
+unset_main = { fg = "#282828", bg = "#d8a657", bold = true }
+unset_alt  = { fg = "#d8a657", bg = "#3c3836" }
 
 # : }}}
 
@@ -94,7 +94,7 @@ unset_alt  = { fg = "red", bg = "gray" }
 parent  = { reversed = true }
 current = { reversed = true }
 preview = { underline = true }
-padding = { open = "", close = "" }
+padding = { open = "", close = "" }
 
 # : }}}
 
@@ -103,20 +103,20 @@ padding = { open = "", close = "" }
 
 [status]
 overall   = {}
-sep_left  = { open = "", close = "" }
-sep_right = { open = "", close = "" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Permissions
-perm_sep   = { fg = "darkgray" }
-perm_type  = { fg = "green" }
-perm_read  = { fg = "yellow" }
-perm_write = { fg = "red" }
-perm_exec  = { fg = "cyan" }
+perm_sep   = { fg = "#665c54" }
+perm_type  = { fg = "#a9b665" }
+perm_read  = { fg = "#d8a657" }
+perm_write = { fg = "#ea6962" }
+perm_exec  = { fg = "#7daea3" }
 
 # Progress
 progress_label  = { bold = true }
-progress_normal = { fg = "green", bg = "black" }
-progress_error  = { fg = "yellow", bg = "red" }
+progress_normal = { fg = "#a9b665", bg = "#282828" }
+progress_error  = { fg = "#d8a657", bg = "#ea6962" }
 
 # : }}}
 
