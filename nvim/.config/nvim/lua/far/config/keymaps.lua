@@ -16,9 +16,14 @@ keymap.set("n", "<leader>hn", "<cmd>nohlsearch<CR>", { desc = "Clear search high
 keymap.set("n", "<leader>nn", "<cmd>set number! number?<CR>", { desc = "Toggle line numbers" })
 keymap.set("n", "<leader>nr", "<cmd>set relativenumber! relativenumber?<CR>", { desc = "Toggle relative numbers" })
 -- Text formatting
-keymap.set("n", "<leader>tt", "!Gperl -MText::Autoformat -e'autoformat'<CR>", { silent = true, desc = "Autoformat text (perl)" })
-keymap.set("n", "<leader>T", "!}fmt -75 -s <CR>", { silent = true, desc = "Format paragraph (fmt)" })
-keymap.set("x", "<leader>T", "!fmt -75 -s <CR>", { silent = true, desc = "Format selection (fmt)" })
+keymap.set(
+    "n",
+    "<leader>tt",
+    "!Gperl -MText::Autoformat -e'autoformat({right=>100})'<CR>",
+    { silent = true, desc = "Autoformat text (perl)" }
+)
+keymap.set("n", "<leader>T", "!}fmt -100 -s <CR>", { silent = true, desc = "Format paragraph (fmt)" })
+keymap.set("x", "<leader>T", "!fmt -100 -s <CR>", { silent = true, desc = "Format selection (fmt)" })
 keymap.set("n", "<leader>tp", "{!}par T4 B=. 75qr<CR>", { silent = true, desc = "Format paragraph (par)" })
 -- rapidly flicking through opening files
 keymap.set("n", "<C-right>", "<cmd>bn<CR>", { desc = "Next buffer" })
