@@ -29,12 +29,17 @@ alias grep='grep --color=always'
 alias pf='ps -af --forest'
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
 alias vw="fzf --preview 'bat --color \"always\" {}'"
-alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm,vid}=mpv
-alias -s {md,txt,xml,xsl,xsd,html,log}=nvim
-alias -s pdf=zathura
-alias -s {epub,mobi,azw3}=ebook-viewer
 alias todo='nvim $(echo ~/repo/doc/daily_notes/TODO-$(date +%Y-%m).md)'
 alias dne='nvim $(echo ~/repo/doc/daily_notes/$(date +%Y-%m-%d))'
 alias gcal='gcal --starting-day=1'
 #
 alias xmail='s-nail'
+# Suffix Aliases
+alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm,vid}="mpv"
+alias -s {toml,md,yaml,json,xml,xsl,xsd,html,log}="bat"
+alias -s pdf="zathura"
+alias -s {epub,mobi,azw3}="ebook-viewer"
+alias -s txt="$EDITOR"
+# Helpful aliases for zmv
+alias zcp='zmv -C'  # Copy with patterns
+alias zln='zmv -L'  # Link with patterns

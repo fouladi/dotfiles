@@ -107,6 +107,12 @@ zinit snippet OMZP::command-not-found # Suggests package to install when command
 # compinit initializes the completion system. Must run after plugins that add
 # completion definitions (like zsh-completions) have populated fpath.
 autoload -Uz compinit && compinit
+# ------------- Enable zmv: renaming multiple files using pattern
+# zmv '(*).log' '$1.txt'           # Rename .log to .txt
+# zmv -w '*.log' '*.txt'           # Same thing, simpler syntax
+# zmv -n '(*).log' '$1.txt'        # Dry run (preview changes)
+# zmv -i '(*).log' '$1.txt'        # Interactive mode (confirm each)
+autoload -Uz zmv
 
 # Replay completions that zinit captured during turbo loading
 zinit cdreplay -q
