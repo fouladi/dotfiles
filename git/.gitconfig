@@ -80,7 +80,7 @@
     default = simple
     autoSetupRemote = true
 [core]
-    editor = vim
+    editor = $EDITOR
     pager = delta
 [color "branch"]
     current = yellow reverse
