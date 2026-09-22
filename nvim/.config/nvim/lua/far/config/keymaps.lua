@@ -1,4 +1,8 @@
 local keymap = vim.keymap
+
+-- Target line width used by the text-formatting mappings below
+local TEXTWIDTH = 100
+
 keymap.set("n", "\\", ",", { noremap = true, desc = "Reverse char search (since leader is comma)" })
 
 -- Keyboard mistyping
@@ -19,12 +23,17 @@ keymap.set("n", "<leader>nr", "<cmd>set relativenumber! relativenumber?<CR>", { 
 keymap.set(
     "n",
     "<leader>tt",
-    "!Gperl -MText::Autoformat -e'autoformat({right=>100})'<CR>",
+    ("vip!perl -MText::Autoformat -e'autoformat({right=>%d})'<CR>"):format(TEXTWIDTH),
     { silent = true, desc = "Autoformat text (perl)" }
 )
-keymap.set("n", "<leader>T", "!}fmt -100 -s <CR>", { silent = true, desc = "Format paragraph (fmt)" })
-keymap.set("x", "<leader>T", "!fmt -100 -s <CR>", { silent = true, desc = "Format selection (fmt)" })
-keymap.set("n", "<leader>tp", "{!}par T4 B=. 75qr<CR>", { silent = true, desc = "Format paragraph (par)" })
+keymap.set(
+    "n",
+    "<leader>T",
+    ("vip!fmt -w %d<CR>"):format(TEXTWIDTH),
+    { silent = true, desc = "Format paragraph (fmt)" }
+)
+keymap.set("x", "<leader>T", ("!fmt -w %d<CR>"):format(TEXTWIDTH), { silent = true, desc = "Format selection (fmt)" })
+keymap.set("n", "<leader>tp", ("{!}par T4 B=. %dqr<CR>"):format(TEXTWIDTH), { silent = true, desc = "Format paragraph (par)" })
 -- rapidly flicking through opening files
 keymap.set("n", "<C-right>", "<cmd>bn<CR>", { desc = "Next buffer" })
 keymap.set("n", "<C-left>", "<cmd>bp<CR>", { desc = "Previous buffer" })
