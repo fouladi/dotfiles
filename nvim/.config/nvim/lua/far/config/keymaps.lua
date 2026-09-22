@@ -43,7 +43,9 @@ local formatters = {
     {
         name = "autofmt",
         lhs = "<leader>tt",
-        cmd = ("perl -MText::Autoformat -e'autoformat({right=>%d})'"):format(TEXTWIDTH),
+        -- Text::Autoformat appends a trailing blank line; strip it with the
+        -- second perl (collapse a run of trailing newlines to a single one).
+        cmd = ("perl -MText::Autoformat -e'autoformat({right=>%d})' | perl -0pe 's/\\n+\\z/\\n/'"):format(TEXTWIDTH),
         desc = "Autoformat text (perl)",
     },
     { name = "fmt", lhs = "<leader>T", cmd = ("fmt -w %d"):format(TEXTWIDTH), desc = "Format paragraph (fmt)" },
