@@ -20,20 +20,50 @@ keymap.set("n", "<leader>hn", "<cmd>nohlsearch<CR>", { desc = "Clear search high
 keymap.set("n", "<leader>nn", "<cmd>set number! number?<CR>", { desc = "Toggle line numbers" })
 keymap.set("n", "<leader>nr", "<cmd>set relativenumber! relativenumber?<CR>", { desc = "Toggle relative numbers" })
 -- Text formatting
-keymap.set(
-    "n",
-    "<leader>tt",
-    ("vip!perl -MText::Autoformat -e'autoformat({right=>%d})'<CR>"):format(TEXTWIDTH),
-    { silent = true, desc = "Autoformat text (perl)" }
-)
-keymap.set(
-    "n",
-    "<leader>T",
-    ("vip!fmt -w %d<CR>"):format(TEXTWIDTH),
-    { silent = true, desc = "Format paragraph (fmt)" }
-)
+--
+-- Dot-repeat (`.`) support without any plugin dependency, using Neovim's
+-- built-in `operatorfunc` + `g@` mechanism:
+--   * The <leader> mapping is an <expr> map that sets `operatorfunc` to the
+--     formatter's callback and returns "g@l" (operate on a single cell,
+--     keeping the cursor in place).
+--   * `g@l` invokes the callback, which filters the inner paragraph.
+--   * Pressing `.` re-runs `g@l`, re-calling the same callback directly.
+--
+-- Callbacks are exposed on a global table so they are reachable via v:lua.
+_G.FarFormat = _G.FarFormat or {}
+
+local function filter_paragraph(cmd)
+    -- Filter the whole inner paragraph through the external command.
+    -- Select the inner paragraph and pipe it through the filter in a single
+    -- normal-mode sequence, so the visual range is live when `!` runs.
+    vim.cmd(("noautocmd keepjumps normal! vip:!%s\r"):format(cmd))
+end
+
+local formatters = {
+    {
+        name = "autofmt",
+        lhs = "<leader>tt",
+        cmd = ("perl -MText::Autoformat -e'autoformat({right=>%d})'"):format(TEXTWIDTH),
+        desc = "Autoformat text (perl)",
+    },
+    { name = "fmt", lhs = "<leader>T", cmd = ("fmt -w %d"):format(TEXTWIDTH), desc = "Format paragraph (fmt)" },
+    { name = "par", lhs = "<leader>tp", cmd = ("par T4 B=. %dqr"):format(TEXTWIDTH), desc = "Format paragraph (par)" },
+}
+
+for _, f in ipairs(formatters) do
+    -- The callback that does the actual work (also what `.` re-invokes).
+    _G.FarFormat[f.name] = function()
+        filter_paragraph(f.cmd)
+    end
+
+    keymap.set("n", f.lhs, function()
+        vim.go.operatorfunc = ("v:lua.FarFormat.%s"):format(f.name)
+        return "g@l"
+    end, { expr = true, silent = true, desc = f.desc })
+end
+
+-- Visual-mode fmt keeps filtering the active selection directly.
 keymap.set("x", "<leader>T", ("!fmt -w %d<CR>"):format(TEXTWIDTH), { silent = true, desc = "Format selection (fmt)" })
-keymap.set("n", "<leader>tp", ("{!}par T4 B=. %dqr<CR>"):format(TEXTWIDTH), { silent = true, desc = "Format paragraph (par)" })
 -- rapidly flicking through opening files
 keymap.set("n", "<C-right>", "<cmd>bn<CR>", { desc = "Next buffer" })
 keymap.set("n", "<C-left>", "<cmd>bp<CR>", { desc = "Previous buffer" })
