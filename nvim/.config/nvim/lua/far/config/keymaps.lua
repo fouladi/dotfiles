@@ -33,10 +33,10 @@ keymap.set("n", "<leader>nr", "<cmd>set relativenumber! relativenumber?<CR>", { 
 _G.FarFormat = _G.FarFormat or {}
 
 local function filter_paragraph(cmd)
-    -- Filter the whole inner paragraph through the external command.
-    -- Select the inner paragraph and pipe it through the filter in a single
-    -- normal-mode sequence, so the visual range is live when `!` runs.
-    vim.cmd(("noautocmd keepjumps normal! vip:!%s\r"):format(cmd))
+    -- 1. Select from the current line to the end of the paragraph to set '< and '> marks.
+    vim.cmd("noautocmd keepjumps normal! V}\027") -- \027 = <Esc>
+    -- 2. Filter the visual range through the external command.
+    vim.cmd(("'<,'>!%s"):format(cmd))
 end
 
 local formatters = {
