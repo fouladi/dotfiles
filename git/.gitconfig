@@ -17,6 +17,8 @@
     co = checkout
     br = branch
     sw = switch
+    rs = restore
+    rv = revert
 
     # ─── Log ──────────────────────────────────────────────────────────────────
     lgp = log -p
