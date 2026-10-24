@@ -122,7 +122,7 @@ zinit cdreplay -q
 # History
 #
 HISTSIZE=10000                 # Max entries kept in memory
-HISTFILE=~/.zsh_history        # Persistent history file
+HISTFILE=$ZDOTDIR/.zsh_history        # Persistent history file
 SAVEHIST=$HISTSIZE             # Max entries saved to HISTFILE
 HISTDUP=erase                  # Remove older duplicate when new duplicate is added
 setopt appendhistory           # Append to history file (don't overwrite)
@@ -184,7 +184,7 @@ dntodo() {
 # ============================================================================
 # Keybindings
 # ============================================================================
-source ~/.alias.zsh
+source $ZDOTDIR/.alias.zsh
 
 # --- Yazi file manager wrapper ---
 # Launches yazi and changes CWD to its exit directory (press q).
