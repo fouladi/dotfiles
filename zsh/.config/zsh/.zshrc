@@ -121,16 +121,16 @@ zinit cdreplay -q
 
 # History
 #
-HISTSIZE=10000                 # Max entries kept in memory
-HISTFILE=$ZDOTDIR/.zsh_history        # Persistent history file
-SAVEHIST=$HISTSIZE             # Max entries saved to HISTFILE
-HISTDUP=erase                  # Remove older duplicate when new duplicate is added
-setopt appendhistory           # Append to history file (don't overwrite)
-setopt sharehistory            # Share history across all active sessions
-setopt hist_ignore_space       # Commands starting with space are not recorded
-setopt hist_ignore_all_dups   # Remove ALL older duplicates of a new entry
-setopt hist_save_no_dups      # Don't write duplicates to HISTFILE
-setopt hist_find_no_dups      # Skip duplicates when searching history (Ctrl+R)
+HISTSIZE=10000                   # Max entries kept in memory
+HISTFILE="$ZDOTDIR/.zsh_history" # Persistent history file
+SAVEHIST=$HISTSIZE               # Max entries saved to HISTFILE
+HISTDUP=erase                    # Remove older duplicate when new duplicate is added
+setopt appendhistory             # Append to history file (don't overwrite)
+setopt sharehistory              # Share history across all active sessions
+setopt hist_ignore_space         # Commands starting with space are not recorded
+setopt hist_ignore_all_dups      # Remove ALL older duplicates of a new entry
+setopt hist_save_no_dups         # Don't write duplicates to HISTFILE
+setopt hist_find_no_dups         # Skip duplicates when searching history (Ctrl+R)
 
 # Completion Styling
 #
