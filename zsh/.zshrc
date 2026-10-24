@@ -26,6 +26,8 @@ export GOPATH="$HOME/.go"
 
 # ------------- Environment variables
 export EDITOR='nvim'
+export VISUAL="nvim"
+export MANPAGER='nvim +Man!'
 export DNHOME="$HOME/repo/doc/daily_notes"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export LS_COLORS="$(vivid generate gruvbox-dark)"

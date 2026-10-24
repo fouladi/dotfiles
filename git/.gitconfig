@@ -18,7 +18,6 @@
     br = branch
     sw = switch
     rs = restore
-    rv = revert
 
     # ─── Log ──────────────────────────────────────────────────────────────────
     lgp = log -p
@@ -62,6 +61,10 @@
     # branch board: ahead/behind with last-commit date
     bb = !git for-each-ref --color --sort=-committerdate --format='%(color:red)%(ahead-behind:HEAD)\t%(color:blue)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:default)%(describe)' refs/heads/ --no-merged |\
         sed 's/ /\t/' | column --separator=$'\t' --table --table-columns='Ahead,Behind,Branch Name,Last Commit,Description'
+    syncmain = !git fetch origin && git rebase --autosquash origin/main
+    syncfrom = "!git fetch origin && git rebase --autosquash origin/$1 #"
+    amend = commit --amend --no-edit
+    wtc = "!f() { git worktree add $PWD/$1 $1; }; f"
 [grep]
     lineNumber = true
     patternType = perl
@@ -74,7 +77,7 @@
 [merge]
     # set "nvim" as tool for merging
     tool = nvim
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [mergetool]
     # automatically launch merge tool without displaying a prompt
     prompt = false
