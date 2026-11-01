@@ -25,5 +25,7 @@ window-decoration = false
 
 # ------------- Input
 keybind = global:f11=toggle_fullscreen
-copy-on-select = clipboard
+# none (no copying), primary (primary selection/middle-click buffer), clipboard (system clipboard),
+# and both:
+copy-on-select = primary
 mouse-scroll-multiplier = 0.95
