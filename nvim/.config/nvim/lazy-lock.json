@@ -2,7 +2,7 @@
   "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
   "aerial.nvim": { "branch": "master", "commit": "28fe6e822ae344544c379d60fcb13c9519a1f08a" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
-  "ccrypt-wrapper.nvim": { "branch": "main", "commit": "6394b779aba968f491ab89e8f2bece6d5ca677e8" },
+  "ccrypt-wrapper.nvim": { "branch": "main", "commit": "cb86bc188fa62eb6e9710b31e225fe858401b068" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "cd4ee08a988deb47ac3726f418fb27fe1a95729d" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
@@ -54,5 +54,5 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "visimatch.nvim": { "branch": "main", "commit": "c4bbb796122416d7848a4d521335de2c2f5aac3d" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "yazi.nvim": { "branch": "main", "commit": "17edd61469575f5b28c8f6460254f0366583f8dd" }
+  "yazi.nvim": { "branch": "main", "commit": "e387d7baf907a24cfa262c7b38a9d9d783056938" }
 }
