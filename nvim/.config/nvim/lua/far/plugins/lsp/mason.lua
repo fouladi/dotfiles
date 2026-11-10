@@ -37,6 +37,9 @@ return {
                 "shfmt", -- bash/zsh formatter
                 "shellcheck", -- bash/zsh formatter
                 "google-java-format", -- Java formatter
+                -- 64-bit tree-sitter CLI used by nvim-treesitter to compile
+                -- parsers (Mason's bin dir is first on Neovim's PATH)
+                "tree-sitter-cli",
             },
         },
         dependencies = {

@@ -39,7 +39,7 @@ return {
             },
             -- Add a format_on_save field to apply formatting when saving a file.
             format_on_save = {
-                lsp_fallback = true, -- use the lsp if no formatter is available.
+                lsp_format = "fallback", -- use the lsp if no formatter is available.
                 async = false, -- not do asynchronous formatting
                 timeout_ms = 1000, -- timeout after 1sec=1000ms if formatting isn't finished
             },
@@ -48,7 +48,7 @@ return {
         -- mode it will apply to the current selection.
         vim.keymap.set({ "n", "v" }, "<leader>ft", function()
             conform.format({
-                lsp_fallback = true,
+                lsp_format = "fallback",
                 async = false,
                 timeout_ms = 1000,
             })

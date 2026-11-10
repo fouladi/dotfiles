@@ -97,9 +97,11 @@ keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move se
 keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selection up" })
 -- Navigate to source tree of file whose buffer I was just editing
 keymap.set("n", "<leader>.", "<cmd>tabedit %:p:h<CR>", { silent = true, desc = "Open file directory in tab" })
+-- Switch between virtual_lines and (current-line) virtual_text, never both.
 keymap.set("", "<leader>bl", function()
+    local lines_on = vim.diagnostic.config().virtual_lines
     vim.diagnostic.config({
-        virtual_lines = not vim.diagnostic.config().virtual_lines,
-        virtual_text = not vim.diagnostic.config().virtual_text,
+        virtual_lines = not lines_on,
+        virtual_text = lines_on and { current_line = true } or false,
     })
 end, { desc = "Toggle diagnostic lines" })

@@ -11,12 +11,16 @@ local workspace_dir = home .. "/jdtls-workspace/" .. project_name
 local system_os = "linux"
 
 -- Needed for debugging
-local bundles = {
-    vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"),
-}
+-- (glob with list=true returns {} instead of {""} when java-debug-adapter /
+-- java-test are not installed via Mason, so no empty bundle paths are passed)
+local bundles = vim.fn.glob(
+    home .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
+    true,
+    true
+)
 
 -- Needed for running/debugging unit tests
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n"))
+vim.list_extend(bundles, vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-test/*.jar", true, true))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -48,7 +52,7 @@ local config = {
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
+    root_dir = vim.fs.root(0, { ".git", "mvnw", "pom.xml", "build.gradle" }),
 
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -67,13 +71,12 @@ local config = {
                 -- you don't have installed
                 -- The runtime name parameters need to match specific Java execution environments.  See https://github.com/tamago324/nlsp-settings.nvim/blob/2a52e793d4f293c0e1d61ee5794e3ff62bfbbb5d/schemas/_generated/jdtls.json#L317-L334
                 runtimes = {
+                    -- Only JDK 21 is installed in /usr/lib/jvm; the name must
+                    -- match the JDK version of the path.
                     {
-                        name = "JavaSE-11",
-                        path = "/usr/lib/jvm/java-11-openjdk-amd64",
-                    },
-                    {
-                        name = "JavaSE-17",
+                        name = "JavaSE-21",
                         path = "/usr/lib/jvm/java-21-openjdk-amd64",
+                        default = true,
                     },
                 },
             },

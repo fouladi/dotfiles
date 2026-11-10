@@ -1,3 +1,3 @@
-require("far.config.autocmds")
-require("far.config.options")
+require("far.config.options") -- first: sets mapleader used by the keymaps
 require("far.config.keymaps")
+require("far.config.autocmds")
