@@ -14,5 +14,5 @@ opt.shiftwidth = 4 -- indent/outdent by four columns
 opt.shiftround = true -- indent/outdent to nearest tabstop
 opt.ignorecase = true -- if search term has at least one capital letter
 opt.smartcase = true --          then case-insensitiv else case-sensitive
-opt.number = false -- shows absolute line number on cursor line
+opt.number = false -- line numbers off by default (toggle with <leader>nn)
 opt.termguicolors = true -- enable 24-bit RGB colors (required by colorizer, bufferline, etc.)

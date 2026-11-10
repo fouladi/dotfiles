@@ -6,5 +6,7 @@ return {
     dependencies = {
         "tpope/vim-fugitive",
     },
-    vim.api.nvim_set_keymap("n", "<leader>gl", ":Flog<CR>", { silent = true }),
+    keys = {
+        { "<leader>gl", "<cmd>Flog<CR>", desc = "Git log graph (Flog)" },
+    },
 }

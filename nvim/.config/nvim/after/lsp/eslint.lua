@@ -1,3 +1,14 @@
+-- ESLint lints JavaScript/TypeScript (and frameworks embedding them), not CSS/HTML.
 return {
-    filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
+        "svelte",
+        "astro",
+    },
 }

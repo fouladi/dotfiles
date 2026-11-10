@@ -1,14 +1,21 @@
 return {
     {
         "L3MON4D3/LuaSnip",
+        lazy = true, -- loaded together with nvim-cmp
         dependencies = {
-            "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
         },
     },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
+        -- completion sources must load together with nvim-cmp
+        dependencies = {
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer", -- required by the { name = "buffer" } source below
+        },
         config = function()
             local cmp = require("cmp")
             require("luasnip.loaders.from_vscode").lazy_load()

@@ -3,7 +3,11 @@ return {
         "sainnhe/gruvbox-material",
         lazy = false, -- make sure we load this during startup if it is the main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
-        opacity = 0.92,
+        config = function()
+            vim.cmd.colorscheme("gruvbox-material") -- Comment in order to deactivate "gruvbox-material"!
+        end,
+        -- init runs before the plugin loads: set options and the highlight
+        -- overrides autocmd here, so they are in place when config applies it.
         init = function(spec)
             vim.g.gruvbox_material_background = "medium" -- soft|medium|hard
             vim.g.gruvbox_material_foreground = "original" -- material|mix|original
@@ -77,7 +81,6 @@ return {
                     setHl("LazyReasonRequire", { link = "@variable.parameter" })
                 end,
             })
-            vim.cmd.colorscheme("gruvbox-material") -- Comment in order to deactivate "gruvbox-material"!
         end,
     },
 }

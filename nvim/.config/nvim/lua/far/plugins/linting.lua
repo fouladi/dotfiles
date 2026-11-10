@@ -13,6 +13,7 @@ return {
         --          https://github.com/mfussenegger/nvim-lint/tree/master/lua/lint/linters
         lint.linters_by_ft = {
             python = { "ruff" },
+            sh = { "shellcheck" }, -- Neovim's filetype for most shell scripts
             bash = { "shellcheck" },
         }
         -- Now add a Neovim autocommand group and autocommand to execute
