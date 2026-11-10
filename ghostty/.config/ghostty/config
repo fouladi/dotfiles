@@ -1,31 +1,47 @@
 # Ghostty Terminal Configuration
 #
+# Check this file:   ghostty +validate-config
+# Reload at runtime: ctrl+shift+,
 
 # ------------- Color Scheme
+# custom Gruvbox variant in ./themes/GruvboxDarkFar
 theme = GruvboxDarkFar
+# render bold text in the normal palette color, not the bright variant
 bold-is-bright = false
 
 # ------------- Font
 font-family = "JetBrainsMono Nerd Font"
 font-size = 10
+# tighten letter spacing by 1px per cell
 adjust-cell-width = -1
 
 # ------------- Cursor
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
+# keep shell integration from switching the cursor to a bar at the prompt
+# ssh-env: send TERM=xterm-256color over SSH so remote hosts without Ghostty's
+# terminfo still work (add ssh-terminfo to install the terminfo remotely)
+shell-integration-features = no-cursor,ssh-env
 mouse-hide-while-typing = true
 
 # ------------- Window
+# initial size in cells
 window-width = 120
 window-height = 55
 window-padding-x = 4
 window-padding-y = 2
-window-decoration = false
+# no titlebar or borders
+window-decoration = none
 
 # ------------- Input
-keybind = global:f11=toggle_fullscreen
-# none (no copying), primary (primary selection/middle-click buffer), clipboard (system clipboard),
-# and both:
-copy-on-select = primary
+# F11 toggles fullscreen while Ghostty is focused (default is ctrl+enter)
+keybind = f11=toggle_fullscreen
+# "Ghostty 1.4.0" requires at least "GTK 4.18" and "libadwaita 1.7" on Linux, which is why a native
+# installation via the standard package repositories of Ubuntu 24.04 LTS is no longer directly
+# supported. Latest Ghostty version for Ubuntu 24.04 is version: 1.3.1.
+# copy selections to both the primary selection and the system clipboard
+copy-on-select = clipboard
+# don't show a "copied" toast on every selection
+app-notifications = no-clipboard-copy
+# scroll distance per wheel notch/touchpad step (default: discrete 3, precision 1)
 mouse-scroll-multiplier = 0.95

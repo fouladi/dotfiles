@@ -1,4 +1,4 @@
-# <type>: <subject> (Max 50 char, Why is this change necessary?)
+# <type>[(scope)][!]: <subject> (Max 50 char, Why is this change necessary?)
 # |<----  Using a Maximum Of 50 Characters  ---->|
 
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
@@ -17,9 +17,12 @@
 # style: formatting, missing semi colons, etc; no production code change
 # refactor: refactoring production code, eg. renaming a variable
 # test: adding missing tests, refactoring tests; no production code change
-# chore: updating grunt tasks etc; no production code change
+# build: build system or external dependencies (npm, cargo, make, ...)
+# ci: CI configuration and scripts
+# chore: maintenance tasks; no production code change
 # perf: a code change that improves performance
-# wip: work in progress.:
+# revert: reverts a previous commit
+# wip: work in progress:
 #   1. Draft some changes, add a bunch of smaller wip commits.
 #   2. Deploy to a test env or re-run a local build, rinse and repeat.
 #   3. Once the code looks good, and the tests pass, squash all wip
@@ -31,7 +34,7 @@
 #      BREAKING CHANGE can be part of commits of any type.
 # --------------------
 # Remember to
-#   - Capitalize the subject line
+#   - Start the subject lowercase after "<type>: " (e.g. "fix: handle empty input")
 #   - Use the imperative mood in the subject line
 #   - Do not end the subject line with a period
 #   - Separate subject from body with a blank line
