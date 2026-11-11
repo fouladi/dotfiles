@@ -25,12 +25,12 @@ alias na='netstat -ntalp'
 alias xml2xsd='java -jar ~/repo/bin/trang.jar'
 #
 alias n='nvim'
-alias grep='grep --color=always'
+alias grep='grep --color=auto'  # 'always' leaks escape codes into pipes and files
 alias pf='ps -af --forest'
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
 alias vw="fzf --preview 'bat --color \"always\" {}'"
-alias todo='nvim $(echo ~/repo/doc/daily_notes/TODO-$(date +%Y-%m).md)'
-alias dne='nvim $(echo ~/repo/doc/daily_notes/$(date +%Y-%m-%d))'
+alias todo='nvim "$DNHOME/TODO-$(date +%Y-%m).md"'
+alias dne='nvim "$DNHOME/$(date +%F)"'
 alias gcal='gcal --starting-day=1'
 #
 alias xmail='s-nail'
