@@ -40,7 +40,7 @@ keybind = f11=toggle_fullscreen
 # installation via the standard package repositories of Ubuntu 24.04 LTS is no longer directly
 # supported. Latest Ghostty version for Ubuntu 24.04 is version: 1.3.1.
 # copy selections to both the primary selection and the system clipboard
-copy-on-select = clipboard
+copy-on-select = primary
 # don't show a "copied" toast on every selection
 app-notifications = no-clipboard-copy
 # scroll distance per wheel notch/touchpad step (default: discrete 3, precision 1)
