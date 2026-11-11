@@ -80,13 +80,8 @@
     # or origin/<branch> (syncfrom), auto-applying fixup!/squash! commits.
     # usage: git syncmain | git syncfrom <branch>
     #
-    # Git < 2.44: --autosquash only works with -i, so run interactively and
-    # accept the generated todo list unchanged (GIT_SEQUENCE_EDITOR=:).
-    syncmain = "!git fetch origin && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash origin/main"
-    syncfrom = "!f() { git fetch origin && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash \"origin/$1\"; }; f"
-    # Git >= 2.44: --autosquash works without -i; swap these in after upgrading.
-    # syncmain = "!git fetch origin && git rebase --autosquash origin/main"
-    # syncfrom = "!f() { git fetch origin && git rebase --autosquash \"origin/$1\"; }; f"
+    syncmain = "!git fetch origin && git rebase --autosquash origin/main"
+    syncfrom = "!f() { git fetch origin && git rebase --autosquash \"origin/$1\"; }; f"
 
     # add staged changes to the last commit, keep its message
     amend = commit --amend --no-edit
