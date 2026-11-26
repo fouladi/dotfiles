@@ -127,7 +127,8 @@ zinit light zsh-users/zsh-history-substring-search
 # These are individual files/plugins from Oh My Zsh, loaded without the full
 # OMZ framework overhead.
 # (OMZP::virtualenv was dropped: it only provides a prompt helper, and
-# starship already shows the active venv. OMZP::zoxide was dropped: it ran a
+# starship shows the active venv via $virtualenv in its python module.
+# OMZP::zoxide was dropped: it ran a
 # second, uncached `zoxide init` and defined z/zi on top of our `cd` setup.)
 
 zinit snippet OMZL::git.zsh            # Git library (core git functions used by OMZP::git)
@@ -157,9 +158,14 @@ autoload -Uz zmv
 # History
 #
 HISTSIZE=50000                   # Max entries kept in memory
-HISTFILE="$ZDOTDIR/.zsh_history" # Persistent history file (git-ignored)
+# History is state, not config, so it lives outside the dotfiles repo.
+# Zsh won't create missing parent dirs for HISTFILE, so ensure it exists.
+[[ -d "$XDG_STATE_HOME/zsh" ]] || mkdir -p -m 700 "$XDG_STATE_HOME/zsh"
+HISTFILE="$XDG_STATE_HOME/zsh/history"  # Persistent history file
 SAVEHIST=$HISTSIZE               # Max entries saved to HISTFILE
 setopt share_history             # Share history across sessions (implies incremental append)
+setopt extended_history          # Record timestamp and duration (`history -i` / `fc -li` to view)
+setopt hist_verify               # Expand !! / !$ into the buffer for review instead of running immediately
 setopt hist_ignore_space         # Commands starting with space are not recorded
 setopt hist_ignore_all_dups      # Remove ALL older duplicates of a new entry
 setopt hist_save_no_dups         # Don't write duplicates to HISTFILE
@@ -171,8 +177,8 @@ setopt hist_reduce_blanks        # Trim superfluous whitespace before saving
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'   # Case-insensitive matching
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Color completions like ls
 zstyle ':completion:*' menu no                            # Disable default menu (fzf-tab handles it)
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'          # Preview dirs on cd
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'  # Preview dirs on z/cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons=always $realpath'          # Preview dirs on cd
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always --icons=always $realpath'  # Preview dirs on z/cd
 
 # ============================================================================
 # Daily Notes (dn) — lightweight CLI note-taking
@@ -268,6 +274,9 @@ bindkey "^[[2~" overwrite-mode         # Insert (toggle)
 bindkey "^[[3~" delete-char            # Delete
 bindkey "^[[5~" up-line-or-history     # PageUp
 bindkey "^[[6~" down-line-or-history   # PageDown
+bindkey "^[[1;5C" forward-word         # Ctrl+Right
+bindkey "^[[1;5D" backward-word        # Ctrl+Left
+bindkey "^[[3;5~" kill-word            # Ctrl+Delete
 
 # ============================================================================
 # FZF Options
